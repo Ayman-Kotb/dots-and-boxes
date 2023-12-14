@@ -1,6 +1,7 @@
-#define GREEN "\x1b[32m"
+#define MAGENTA "\x1b[35m"
 #define RESET "\x1b[0m"
 #include <stdio.h> 
+#include <string.h>
 
 int capital_letters_of_grid = 0;
 int small_letters_of_grid = 0;
@@ -24,7 +25,7 @@ void Creat_Initial_Grid_For_Beginners(char array_of_grid_of_beginners[9][13])
           }
           else
           {
-            array_of_grid_of_beginners[rows_B][columns_B]='-';
+            array_of_grid_of_beginners[rows_B][columns_B]=' ';
           }
         }
         else
@@ -38,7 +39,7 @@ void Creat_Initial_Grid_For_Beginners(char array_of_grid_of_beginners[9][13])
              }
              else
              {
-                array_of_grid_of_beginners[rows_B][columns_B]='|';
+                array_of_grid_of_beginners[rows_B][columns_B]=' ';
              }
           }
           else
@@ -80,7 +81,7 @@ void Creat_Initial_Grid_For_Experts(char array_of_grid_of_experts[17][25])
             }
             else
             {
-                array_of_grid_of_experts[rows_E][columns_E]='-';
+                array_of_grid_of_experts[rows_E][columns_E]=' ';
             }
         }
         else
@@ -94,7 +95,7 @@ void Creat_Initial_Grid_For_Experts(char array_of_grid_of_experts[17][25])
                 }
                 else
                 {
-                    array_of_grid_of_experts[rows_E][columns_E]='|';
+                    array_of_grid_of_experts[rows_E][columns_E]=' ';
                 }
             }
             else
@@ -105,11 +106,12 @@ void Creat_Initial_Grid_For_Experts(char array_of_grid_of_experts[17][25])
     }
   }
   //print the initial
+  char a[2] = ".";
   for(int row=0;row<17;row++)
   {
     for(int column=0;column<25;column++)
     {
-        printf(" %c",array_of_grid_of_experts[row][column]);
+      printf(" %c",array_of_grid_of_experts[row][column]); 
     }
     printf("\n");
   }

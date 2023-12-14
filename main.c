@@ -3,6 +3,7 @@
 #include "Grid_change.h"
 #include "checks.h"
 #include "Turns.h"
+
 //arrays
 char array_of_grid_of_beginners[9][13];
 char array_of_grid_of_experts[17][25];
