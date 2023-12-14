@@ -56,20 +56,14 @@ void creat_initial_grid_for_beginners(char array_of_grid_of_beginners[9][13])
     {
       for(int column=0;column<13;column++)
       {
-        int found = 0;
-        for(int count= 0;count<6;count++)
-        {
-          if((array_of_grid_of_beginners[row][column]==('a'+count))||(array_of_grid_of_beginners[row][column]==('A'+count)))
+          if(array_of_grid_of_beginners[row][column]=='.')
+          {
+            printf(" %c",array_of_grid_of_beginners[row][column]);
+          }
+          else
           {
             printf(GREEN" %c"RESET,array_of_grid_of_beginners[row][column]);
-            found =1;
-            break;
-          } 
-        }
-        if(found==0)
-        {
-          printf(" %c",array_of_grid_of_beginners[row][column]);
-        }
+          }
       }
       printf("\n");
     }
@@ -123,20 +117,14 @@ void creat_initial_grid_for_experts(char array_of_grid_of_experts[17][25])
   {
     for(int column=0;column<25;column++)
     {
-      int found = 0;
-      for(int count=0;count<21;count++)
-      {
-        if((array_of_grid_of_experts[row][column]==('a'+count))||(array_of_grid_of_experts[row][column]==('A'+count)))
+        if(array_of_grid_of_experts[row][column]=='.')
+        {
+          printf(" %c",array_of_grid_of_experts[row][column]);
+        }
+        else
         {
           printf(GREEN" %c"RESET,array_of_grid_of_experts[row][column]);
-          found = 1;
-          break;
         }
-      }
-      if(found==0)
-      {
-        printf(" %c",array_of_grid_of_experts[row][column]);
-      } 
     }
     printf("\n");
   }
