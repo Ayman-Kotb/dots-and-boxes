@@ -1,4 +1,5 @@
 #define MAGENTA "\x1b[35m"
+#define GREEN "\x1b[32m"
 #define RESET "\x1b[0m"
 #include <stdio.h> 
 #include <string.h>
@@ -55,11 +56,23 @@ void creat_initial_grid_for_beginners(char array_of_grid_of_beginners[9][13])
     {
       for(int column=0;column<13;column++)
       {
-        printf(" %c",array_of_grid_of_beginners[row][column]);
+        int found = 0;
+        for(int count= 0;count<6;count++)
+        {
+          if((array_of_grid_of_beginners[row][column]==('a'+count))||(array_of_grid_of_beginners[row][column]==('A'+count)))
+          {
+            printf(GREEN" %c"RESET,array_of_grid_of_beginners[row][column]);
+            found =1;
+            break;
+          } 
+        }
+        if(found==0)
+        {
+          printf(" %c",array_of_grid_of_beginners[row][column]);
+        }
       }
       printf("\n");
     }
-    
 }
 //Experts
 void creat_initial_grid_for_experts(char array_of_grid_of_experts[17][25])
@@ -106,12 +119,24 @@ void creat_initial_grid_for_experts(char array_of_grid_of_experts[17][25])
     }
   }
   //print the initial
-  char a[2] = ".";
   for(int row=0;row<17;row++)
   {
     for(int column=0;column<25;column++)
     {
-      printf(" %c",array_of_grid_of_experts[row][column]); 
+      int found = 0;
+      for(int count=0;count<21;count++)
+      {
+        if((array_of_grid_of_experts[row][column]==('a'+count))||(array_of_grid_of_experts[row][column]==('A'+count)))
+        {
+          printf(GREEN" %c"RESET,array_of_grid_of_experts[row][column]);
+          found = 1;
+          break;
+        }
+      }
+      if(found==0)
+      {
+        printf(" %c",array_of_grid_of_experts[row][column]);
+      } 
     }
     printf("\n");
   }

@@ -1,8 +1,11 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 #include "initialGrid.h"
 #include "Grid_change.h"
 #include "checks.h"
 #include "Turns.h"
+#include "Data.h"
 
 //arrays
 char array_of_grid_of_beginners[9][13];
