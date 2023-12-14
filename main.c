@@ -15,6 +15,7 @@ int main()
     char Name_Player1[10];
     char Name_Player2[10];
     //TAke names and who play against:
+    printf("Hello to Dots and Boxes Game!\n\n");
     printf("what mode U want to play\n1: Experts Mode\n2: Beginner Mode\n");
     scanf("%d",&MODE_B_E);
     printf("===========================\n");
