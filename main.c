@@ -44,22 +44,22 @@ int main()
     if(MODE_B_E==1&&against==1)//two players in the experts mode
     {
        creat_initial_grid_for_experts(array_of_grid_of_experts);
-       printf("\n\n=====================================================\n\n");
+       printf("\n\n=====================================================\n\n");//still
     }
     else if(MODE_B_E==1&&against==2)//one player vs computer in the experts mode
     {
        creat_initial_grid_for_experts(array_of_grid_of_experts);
-       printf("\n\n=====================================================\n\n");
+       printf("\n\n=====================================================\n\n");//still
     }
     else if(MODE_B_E==2&&against==1)//two player in the beginner mode
     {
        creat_initial_grid_for_beginners(array_of_grid_of_beginners);
-       printf("\n\n=====================================================\n\n");
+       printf("\n\n=====================================================\n\n");//still
     }
     else//one player vs computer in the beginners mode
     {
        creat_initial_grid_for_beginners(array_of_grid_of_beginners);
-       printf("\n\n=====================================================\n\n");
+       printf("\n\n=====================================================\n\n");//still
     }
     
 return 0;  

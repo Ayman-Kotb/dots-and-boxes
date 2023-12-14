@@ -4,7 +4,7 @@
 
 int Found;
 
-int  Check_Letter_In_Array_Of_Experts(char letter_changed ,char array_of_grid_of_experts[17][25])
+int  Check_Letter_In_Array_Of_Experts(char letter_changed ,char array_of_grid_of_experts[17][25]) // check letter choosen in array
 {
   for(int row = 0; row <17; row++)
   {
@@ -25,7 +25,7 @@ int  Check_Letter_In_Array_Of_Experts(char letter_changed ,char array_of_grid_of
      return 0;
     }
 }
-int Check_Letter_In_Array_Of_Beginners(char letter_changed,char array_of_grid_of_beginners[9][13])
+int Check_Letter_In_Array_Of_Beginners(char letter_changed,char array_of_grid_of_beginners[9][13]) // check letter choosen in array
 {
   for(int row = 0; row <9; row++)
   {
