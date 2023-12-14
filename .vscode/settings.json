@@ -1,0 +1,10 @@
+{
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "grade.h": "c",
+        "grid_change.h": "c",
+        "stdio.h": "c",
+        "checks.h": "c"
+    },
+    "cmake.sourceDirectory": "${workspaceFolder}/Users/Mega Store/.vscode/extensions/twxs.cmake-0.0.17/node_modules/peg-cmake/test"
+}
