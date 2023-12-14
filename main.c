@@ -30,36 +30,36 @@ int main()
         printf("whats your name player 2\n");
         scanf("%s",&Name_Player2);
         printf("\n%s has Red color , %s has Yellow color\n", Name_Player1, Name_Player2);
-        printf("=========================================\n");
+        printf("\n\n====================================================\n\n");
     }
     else
     {
         printf("whats your name\n");
         scanf("%s",&Name_Player1);
         printf("\nU has Red color , Computer has Yellow color\n");
-        printf("=============================================\n");
+        printf("\n\n====================================================\n\n");
     }
     //turns
     char letter_to_be_changed;
     if(MODE_B_E==1&&against==1)//two players in the experts mode
     {
-       Creat_Initial_Grid_For_Experts(array_of_grid_of_experts);
-       printf("=============================================\n");
+       creat_initial_grid_for_experts(array_of_grid_of_experts);
+       printf("\n\n=====================================================\n\n");
     }
     else if(MODE_B_E==1&&against==2)//one player vs computer in the experts mode
     {
-       Creat_Initial_Grid_For_Experts(array_of_grid_of_experts);
-       printf("=============================================\n");
+       creat_initial_grid_for_experts(array_of_grid_of_experts);
+       printf("\n\n=====================================================\n\n");
     }
     else if(MODE_B_E==2&&against==1)//two player in the beginner mode
     {
-       Creat_Initial_Grid_For_Beginners(array_of_grid_of_beginners);
-       printf("=============================================\n");
+       creat_initial_grid_for_beginners(array_of_grid_of_beginners);
+       printf("\n\n=====================================================\n\n");
     }
     else//one player vs computer in the beginners mode
     {
-       Creat_Initial_Grid_For_Beginners(array_of_grid_of_beginners);
-       printf("=============================================\n");
+       creat_initial_grid_for_beginners(array_of_grid_of_beginners);
+       printf("\n\n=====================================================\n\n");
     }
     
 return 0;  

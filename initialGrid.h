@@ -6,7 +6,7 @@
 int capital_letters_of_grid = 0;
 int small_letters_of_grid = 0;
 //Beginners
-void Creat_Initial_Grid_For_Beginners(char array_of_grid_of_beginners[9][13])
+void creat_initial_grid_for_beginners(char array_of_grid_of_beginners[9][13])
 {
     for(int rows_B = 0; rows_B < 9; rows_B++)
     {
@@ -62,7 +62,7 @@ void Creat_Initial_Grid_For_Beginners(char array_of_grid_of_beginners[9][13])
     
 }
 //Experts
-void Creat_Initial_Grid_For_Experts(char array_of_grid_of_experts[17][25])
+void creat_initial_grid_for_experts(char array_of_grid_of_experts[17][25])
 {
   for(int rows_E=0;rows_E<17;rows_E++)
   {

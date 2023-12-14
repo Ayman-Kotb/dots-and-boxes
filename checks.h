@@ -2,7 +2,7 @@
 #define RED     "\x1b[31m"
 #define YELLOW  "\x1b[33m"
 
-int Found_in_Array;
+int Found;
 
 int  Check_Letter_In_Array_Of_Experts(char letter_changed ,char array_of_grid_of_experts[17][25])
 {
@@ -12,11 +12,11 @@ int  Check_Letter_In_Array_Of_Experts(char letter_changed ,char array_of_grid_of
     {
       if(array_of_grid_of_experts[row][col]==letter_changed)
       {
-        Found_in_Array=1;
+        Found=1;
       }
     }
   }
-    if(Found_in_Array==1)
+    if(Found==1)
     {
      return 1;
     }
@@ -33,11 +33,11 @@ int Check_Letter_In_Array_Of_Beginners(char letter_changed,char array_of_grid_of
     {
       if(array_of_grid_of_beginners[row][col]==letter_changed)
       {
-        Found_in_Array = 1;
+        Found = 1;
       }
     }
   }
-  if(Found_in_Array==1)
+  if(Found==1)
   {
     return 1;
   }
