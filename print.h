@@ -10,11 +10,11 @@ void print_initial_B(char array_of_grid_of_beginners[9][13])
       {
           if(array_of_grid_of_beginners[row][column]=='.')
           {
-            printf(" %c",array_of_grid_of_beginners[row][column]);
+            printf(GREEN" %c"RESET,array_of_grid_of_beginners[row][column]);
           }
           else
           {
-            printf((GREEN" %c"RESET),array_of_grid_of_beginners[row][column]);
+            printf((MAGENTA" %c"RESET),array_of_grid_of_beginners[row][column]);
           }
       }
       printf("\n");
@@ -29,11 +29,11 @@ void print_initial_E(char array_of_grid_of_experts[17][25])
     {
         if(array_of_grid_of_experts[row][column]=='.')
         {
-          printf(" %c",array_of_grid_of_experts[row][column]);
+          printf(GREEN" %c"RESET,array_of_grid_of_experts[row][column]);
         }
         else
         {
-          printf((GREEN" %c"RESET),array_of_grid_of_experts[row][column]);
+          printf((MAGENTA" %c"RESET),array_of_grid_of_experts[row][column]);
         }
     }
     printf("\n");
@@ -48,11 +48,11 @@ void print_after_change_beginners(char array_of_grid_of_beginners[9][13])
       {
           if(array_of_grid_of_beginners[i][j]=='.')
           {
-            printf(" %c",array_of_grid_of_beginners[i][j]);
+            printf(GREEN" %c"RESET,array_of_grid_of_beginners[i][j]);
           }
           else
           {
-            printf((GREEN" %c"RESET),array_of_grid_of_beginners[i][j]);
+            printf((MAGENTA" %c"RESET),array_of_grid_of_beginners[i][j]);
           }
       }
       printf("\n");
@@ -67,11 +67,11 @@ void print_after_change_experts(char array_of_grid_of_experts[17][25])
       {
           if(array_of_grid_of_experts[i][j]=='.')
           {
-            printf(" %c",array_of_grid_of_experts[i][j]);
+            printf(GREEN" %c"RESET,array_of_grid_of_experts[i][j]);
           }
           else
           {
-            printf((GREEN" %c"RESET),array_of_grid_of_experts[i][j]);
+            printf((MAGENTA" %c"RESET),array_of_grid_of_experts[i][j]);
           }
       }
       printf("\n");
