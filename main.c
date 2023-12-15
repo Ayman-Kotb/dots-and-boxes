@@ -18,13 +18,26 @@ int main()
     char Name_Player1[10];
     char Name_Player2[10];
     //TAke names and who play against:
-    printf("Hello to Dots and Boxes Game!\n\n");
+    printf("Welcome to Dots and Boxes Game!\n\n");
     printf("what mode U want to play\n1: Experts Mode\n2: Beginner Mode\n");
     scanf("%d",&MODE_B_E);
-    printf("===========================\n");
-    printf("choose who U want to play against\n1: another Player\n2: Computer\n");
+    while ((MODE_B_E!=1)&&(MODE_B_E!=2))
+    {
+      printf("Invalid , please select the number of the mode U want\n") ;
+      printf("what mode U want to play\n1: Experts Mode\n2: Beginner Mode\n");
+      scanf("%d",&MODE_B_E);
+    }
+    
+    printf("==========================================\n");
+    printf("choose who do U want to play against\n1: another Player\n2: Computer\n");
     scanf("%d",&against);
-    printf("===========================\n");
+    while ((against!=1)&&(against!=2))
+    {
+      printf("Invalid , please select the number of the mode U want\n") ;
+      printf("choose who do U want to play against\n1: another Player\n2: Computer\n");
+      scanf("%d",&against);
+    }
+    printf("==========================================\n");
     //prints
     if(against == 1)
     {
@@ -64,6 +77,15 @@ int main()
        creat_initial_grid_for_beginners(array_of_grid_of_beginners);
        printf("\n\n=====================================================\n\n");//still
     }
+    for (int turn = 1; turn < 13; turn++)
+    {
+      if (turn%2==1)
+      player_one_turn(MODE_B_E ,array_of_grid_of_beginners,array_of_grid_of_experts,Name_Player1) ;
+      else 
+      player_two_turn(MODE_B_E ,array_of_grid_of_beginners,array_of_grid_of_experts,Name_Player2) ;
+    }
+    
+    
     
 return 0;  
 }
