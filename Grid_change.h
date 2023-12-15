@@ -46,6 +46,7 @@ void grid_after_change_of_beginners(char letter_changed,char array_of_grid_of_be
         }
         if (found_in ==1) break;
     }
+    //print
   for (int i=0;i<9;i++)
     {
       for(int j=0;j<13;j++)

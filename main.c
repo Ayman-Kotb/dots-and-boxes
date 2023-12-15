@@ -6,6 +6,7 @@
 #include "checks.h"
 #include "Turns.h"
 #include "Data.h"
+#include "print.h"
 
 //arrays
 char array_of_grid_of_beginners[9][13];
