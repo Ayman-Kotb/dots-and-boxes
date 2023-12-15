@@ -22,7 +22,7 @@ int main()
     printf("\n"BLKHD"Welcome to Dots and Boxes Game!"RESET"\n\n");
     printf("what mode U want to play\n1: Experts Mode\n2: Beginner Mode\n");
     scanf(" %d",&MODE_B_E);
-
+    // Error when enter letters?!
     while ((MODE_B_E != 1)&&(MODE_B_E != 2))
     {
       printf("Invalid , please select the number of the mode U want from 1:2\n") ;
@@ -85,5 +85,5 @@ int main()
        print_initial_B(array_of_grid_of_beginners);
        printf("\n=====================================================\n");//still
     }
-return 0;  
+    return 0;  
 }
