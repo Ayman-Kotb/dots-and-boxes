@@ -6,6 +6,7 @@
 #define CYAN "\e[0;36m"
 #define MAGENTA "\e[0;35m"
 #define BLKHD "\e[0;100m"
+#define REDS "\e[0;101m" 
 #define RESET "\e[0m"
 // code
 int capital_letters_of_grid = 0;

@@ -9,7 +9,7 @@ void player_one_turn(int MODE_B_E , char array_of_grid_of_beginners[9][13], char
     int checked_letter = 2;
     if(MODE_B_E ==1)
     {
-      printf("\n%s, your turn\n",Name_Player1);
+      printf("\n"BLKHD"%s, your turn"RESET"\n",Name_Player1);
       printf("please enter the letter U want to change, %s\n",Name_Player1);
       scanf(" %c",&letter_be_changed);
       printf("\n");
@@ -27,7 +27,7 @@ void player_one_turn(int MODE_B_E , char array_of_grid_of_beginners[9][13], char
     }
     else
     {
-      printf("\n%s,turn\n",Name_Player1);
+      printf("\n"BLKHD"%s,turn"RESET"\n",Name_Player1);
       printf("please enter the letter U want to change, %s\n",Name_Player1);
       scanf(" %c",&letter_be_changed);
       printf("\n");
@@ -50,7 +50,7 @@ void player_two_turn(int MODE_B_E,char array_of_grid_of_beginners[9][13],char ar
   int checked_letter = 2;
   if(MODE_B_E ==1)
     {
-      printf("\n%s,turn\n",Name_Player2);
+      printf("\n"BLKHD"%s,turn"RESET"\n",Name_Player2);
       printf("please enter the letter U want to change, %s\n",Name_Player2);
       scanf(" %c",&letter_be_changed);
       printf("\n");
@@ -68,7 +68,7 @@ void player_two_turn(int MODE_B_E,char array_of_grid_of_beginners[9][13],char ar
     }
     else
     {
-      printf("\n%s,turn\n",Name_Player2);
+      printf("\n"BLKHD"%s,turn"RESET"\n",Name_Player2);
       printf("please enter the letter U want to change, %s\n",Name_Player2);
       scanf(" %c",&letter_be_changed);
       printf("\n");

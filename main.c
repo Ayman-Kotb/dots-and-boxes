@@ -19,7 +19,7 @@ int main()
     char Name_Player1[10];
     char Name_Player2[10];
     //TAke names and who play against:
-    printf("\n"BLKHD"Welcome to Dots and Boxes Game!"RESET"\n\n");
+    printf("\n"REDS"Welcome to Dots and Boxes Game!"RESET"\n\n");
     printf("what mode U want to play\n1: Experts Mode\n2: Beginner Mode\n");
     scanf(" %d",&MODE_B_E);
     // Error when enter letters?!
@@ -48,7 +48,7 @@ int main()
         printf("whats your name, player 2\n");
         scanf("%s",&Name_Player2);
         printf("\n%s has Red color , %s has Yellow color\n", Name_Player1, Name_Player2);
-        printf("this is initial grid\n");
+        printf(BLKHD"this is initial grid"RESET"\n");
         printf("====================================================\n\n");
     }
     else
@@ -56,7 +56,7 @@ int main()
         printf("whats your name\n");
         scanf("%s",&Name_Player1);
         printf("\nU has Red color , Computer has Yellow color\n");
-        printf("this is initial grid\n");
+        printf(BLKHD"this is initial grid"RESET"\n");
         printf("====================================================\n\n");
     }
     //turns
