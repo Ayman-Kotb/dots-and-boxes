@@ -1,8 +1,6 @@
 #include<stdio.h>
-#define RED     "\x1b[31m"
-#define YELLOW  "\x1b[33m"
-
-
+#include<stdlib.h>
+#include<string.h>
 
 int  Check_Letter_In_Array_Of_Experts(char letter_changed ,char array_of_grid_of_experts[17][25]) // check letter choosen in array
 { 

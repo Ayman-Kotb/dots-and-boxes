@@ -1,9 +1,13 @@
-#define MAGENTA "\x1b[35m"
-#define GREEN "\x1b[32m"
-#define RESET "\x1b[0m"
 #include <stdio.h> 
+// color space
 #include <string.h>
-
+#define RED "\e[0;31m"
+#define GREEN "\e[0;32m"
+#define CYAN "\e[0;36m"
+#define MAGENTA "\e[0;35m"
+#define BLKHD "\e[0;100m"
+#define RESET "\e[0m"
+// code
 int capital_letters_of_grid = 0;
 int small_letters_of_grid = 0;
 //Beginners
@@ -49,11 +53,8 @@ void creat_initial_grid_for_beginners(char array_of_grid_of_beginners[9][13])
           }
         }
       }
-      
     }
-     //print the initial
-    print_the_initial_grid_for_beginners(array_of_grid_of_beginners);
-}
+}   
 //Experts
 void creat_initial_grid_for_experts(char array_of_grid_of_experts[17][25])
 {
@@ -98,6 +99,4 @@ void creat_initial_grid_for_experts(char array_of_grid_of_experts[17][25])
         }
     }
   }
-  //print the initial
-  print_the_initial_grid_for_experts(array_of_grid_of_experts);
 }

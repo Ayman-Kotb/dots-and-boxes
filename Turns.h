@@ -1,8 +1,6 @@
 #include <stdio.h>
-
-#define RED     "\x1b[31m"
-#define YELLOW  "\x1b[33m"
-
+#include <string.h>
+#include <stdlib.h>
 
 
 void player_one_turn(int MODE_B_E , char array_of_grid_of_beginners[9][13], char array_of_grid_of_experts[17][25],char Name_Player1[10])

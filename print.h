@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include <string.h>
+#include<stdlib.h>
 
-void print_the_initial_grid_for_beginners(char array_of_grid_of_beginners[9][13])
+void print_initial_B(char array_of_grid_of_beginners[9][13])
 {
   for (int row=0;row<9;row++)
     {
@@ -12,13 +14,13 @@ void print_the_initial_grid_for_beginners(char array_of_grid_of_beginners[9][13]
           }
           else
           {
-            printf(GREEN" %c"RESET,array_of_grid_of_beginners[row][column]);
+            printf((GREEN" %c"RESET),array_of_grid_of_beginners[row][column]);
           }
       }
       printf("\n");
     }
 }
-void print_the_initial_grid_for_experts(char array_of_grid_of_experts[17][25])
+void print_initial_E(char array_of_grid_of_experts[17][25])
 {
   for(int row=0;row<17;row++)
   {
@@ -30,9 +32,17 @@ void print_the_initial_grid_for_experts(char array_of_grid_of_experts[17][25])
         }
         else
         {
-          printf(GREEN" %c"RESET,array_of_grid_of_experts[row][column]);
+          printf((GREEN" %c"RESET),array_of_grid_of_experts[row][column]);
         }
     }
     printf("\n");
   }
+}
+void print_after_change_beginners()
+{
+
+}
+void print_after_change_experts()
+{
+
 }
