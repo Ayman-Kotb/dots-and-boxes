@@ -34,6 +34,7 @@ int Check_Letter_In_Array_Of_Beginners(char letter_changed,char array_of_grid_of
       if(array_of_grid_of_beginners[row_c][col_c]==letter_changed)
       {
         Found = 1;
+        break;
       }
     }
     if(Found==1)

@@ -19,14 +19,15 @@ int main()
     char Name_Player1[10];
     char Name_Player2[10];
     //TAke names and who play against:
-    printf(BLKHD"\nWelcome to Dots and Boxes Game!\n\n"RESET);
+    printf("\n"BLKHD"Welcome to Dots and Boxes Game!"RESET"\n\n");
     printf("what mode U want to play\n1: Experts Mode\n2: Beginner Mode\n");
-    scanf("%d",&MODE_B_E);
-    while ((MODE_B_E!=1)&&(MODE_B_E!=2))
+    scanf(" %d",&MODE_B_E);
+
+    while ((MODE_B_E != 1)&&(MODE_B_E != 2))
     {
-      printf("Invalid , please select the number of the mode U want\n") ;
-      printf("what mode U want to play\n1: Experts Mode\n2: Beginner Mode\n");
-      scanf("%d",&MODE_B_E);
+      printf("Invalid , please select the number of the mode U want from 1:2\n") ;
+      printf("1: Experts Mode\n2: Beginner Mode\n");
+      scanf(" %d",&MODE_B_E);
     }
     
     printf("==========================================\n");
@@ -34,19 +35,20 @@ int main()
     scanf("%d",&against);
     while ((against!=1)&&(against!=2))
     {
-      printf("Invalid , please select the number of the mode U want\n") ;
-      printf("choose who do U want to play against\n1: another Player\n2: Computer\n");
+      printf("Invalid , please select the number who U want to play against from 1:2\n") ;
+      printf("1: another Player\n2: Computer\n");
       scanf("%d",&against);
     }
     printf("==========================================\n");
     //prints
     if(against == 1)
     {
-        printf("whats your name player 1\n");
+        printf("whats your name, player 1\n");
         scanf("%s",&Name_Player1);
-        printf("whats your name player 2\n");
+        printf("whats your name, player 2\n");
         scanf("%s",&Name_Player2);
         printf("\n%s has Red color , %s has Yellow color\n", Name_Player1, Name_Player2);
+        printf("this is initial grid\n");
         printf("====================================================\n\n");
     }
     else
@@ -54,6 +56,7 @@ int main()
         printf("whats your name\n");
         scanf("%s",&Name_Player1);
         printf("\nU has Red color , Computer has Yellow color\n");
+        printf("this is initial grid\n");
         printf("====================================================\n\n");
     }
     //turns
@@ -82,15 +85,5 @@ int main()
        print_initial_B(array_of_grid_of_beginners);
        printf("\n=====================================================\n");//still
     }
-    for (int turn = 1; turn < 13; turn++)
-    {
-      if (turn%2==1)
-      player_one_turn(MODE_B_E ,array_of_grid_of_beginners,array_of_grid_of_experts,Name_Player1) ;
-      else 
-      player_two_turn(MODE_B_E ,array_of_grid_of_beginners,array_of_grid_of_experts,Name_Player2) ;
-    }
-    
-    
-    
 return 0;  
 }
