@@ -1,7 +1,11 @@
 #include <stdio.h> 
-// color space
 #include <string.h>
+// color space
 #define RED "\e[0;31m"
+#define BLUE "\e[0;34m"
+#define BAYLE "\e[1;93m"
+#define BIBLE "\e[1;94m"
+#define BRED "\e[1;91m"
 #define YELLOW "\e[0;33m"
 #define GREEN "\e[0;32m"
 #define CYAN "\e[0;36m"

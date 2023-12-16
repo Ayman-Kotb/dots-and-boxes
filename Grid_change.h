@@ -10,7 +10,7 @@ void grid_after_change_of_beginners(char letter_changed,unsigned char array_of_g
   int found_in = 0 ;
   for (int row_ch=0;row_ch<9;row_ch++)
     {
-      for(int column_ch=0;column_ch<13;column_ch++)
+      for(int column_ch=0;column_ch<17;column_ch++)
        {
           if(array_of_grid_of_beginners[row_ch][column_ch]==letter_changed)
           {
