@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 char letter_be_changed = '0';
-void player_one_turn(int MODE_B_E ,unsigned char array_of_grid_of_beginners[9][13],unsigned char array_of_grid_of_experts[17][25],char Name_Player1[10])
+void player_one_turn(int MODE_B_E ,unsigned char array_of_grid_of_beginners[9][13],unsigned char array_of_grid_of_experts[21][31],char Name_Player1[10])
 {
     int checked_letter = 2;
     if(MODE_B_E ==1)
@@ -43,7 +43,7 @@ void player_one_turn(int MODE_B_E ,unsigned char array_of_grid_of_beginners[9][1
       grid_after_change_of_beginners(letter_be_changed,array_of_grid_of_beginners);       // still    
     }
 }
-void player_two_turn(int MODE_B_E,unsigned char array_of_grid_of_beginners[9][13],unsigned char array_of_grid_of_experts[17][25],char Name_Player2[10])
+void player_two_turn(int MODE_B_E,unsigned char array_of_grid_of_beginners[9][13],unsigned char array_of_grid_of_experts[21][31],char Name_Player2[10])
 {
   int checked_letter = 2;
   if(MODE_B_E ==1)
