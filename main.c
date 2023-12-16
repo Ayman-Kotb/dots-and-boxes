@@ -7,10 +7,12 @@
 #include "Turns.h"
 #include "Data.h"
 #include "print.h"
+# define DOT '.'
+# define DASH '-'
 
 //arrays
-char array_of_grid_of_beginners[9][13];
-char array_of_grid_of_experts[17][25];
+unsigned char array_of_grid_of_beginners[9][13];
+unsigned char array_of_grid_of_experts[17][25];
 // code
 int main()
 {
@@ -47,7 +49,7 @@ int main()
         scanf("%s",&Name_Player1);
         printf("whats your name, player 2\n");
         scanf("%s",&Name_Player2);
-        printf("\n%s has Red color , %s has Yellow color\n", Name_Player1, Name_Player2);
+        printf("\n%s has Red color , %s has Yellow color\n\n", Name_Player1, Name_Player2);
         printf(BLKHD"this is initial grid"RESET"\n");
         printf("====================================================\n\n");
     }
@@ -55,7 +57,7 @@ int main()
     {
         printf("whats your name\n");
         scanf("%s",&Name_Player1);
-        printf("\nU has Red color , Computer has Yellow color\n");
+        printf("\nU has Red color , Computer has Yellow color\n\n");
         printf(BLKHD"this is initial grid"RESET"\n");
         printf("====================================================\n\n");
     }
@@ -85,5 +87,10 @@ int main()
        print_initial_B(array_of_grid_of_beginners);
        printf("\n=====================================================\n");//still
     }
-    return 0;  
+
+    for(int i=0;i<20;i++)
+    {
+      player_one_turn(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,Name_Player1);
+      print_after_change_experts(array_of_grid_of_experts);
+    }
 }

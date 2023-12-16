@@ -12,17 +12,22 @@ int  Check_Letter_In_Array_Of_Experts(char letter_changed ,char array_of_grid_of
       if(array_of_grid_of_experts[row_c][col_c]==letter_changed)
       {
         Found=1;
+        break;
       }
     }
-  }
     if(Found==1)
     {
-     return 1;
+      break;
     }
-    else
-    {
-     return 2;
-    }
+  }
+  if(Found==1)
+  {
+    return 1;
+  }
+  else
+  {
+    return 2;
+  }
 }
 int Check_Letter_In_Array_Of_Beginners(char letter_changed,char array_of_grid_of_beginners[9][13]) // check letter choosen in array
 {

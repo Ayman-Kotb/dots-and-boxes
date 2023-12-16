@@ -1,6 +1,8 @@
 #include <stdio.h> 
 // color space
 #include <string.h>
+# define DOT '.'
+# define DASH '-'
 #define RED "\e[0;31m"
 #define GREEN "\e[0;32m"
 #define CYAN "\e[0;36m"
@@ -12,7 +14,7 @@
 int capital_letters_of_grid = 0;
 int small_letters_of_grid = 0;
 //Beginners
-void creat_initial_grid_for_beginners(char array_of_grid_of_beginners[9][13])
+void creat_initial_grid_for_beginners(unsigned char array_of_grid_of_beginners[9][13])
 {
     for(int rows_B = 0; rows_B < 9; rows_B++)
     {
@@ -22,7 +24,7 @@ void creat_initial_grid_for_beginners(char array_of_grid_of_beginners[9][13])
         {
           if(columns_B%6==0)
           {
-            array_of_grid_of_beginners[rows_B][columns_B]='.';
+            array_of_grid_of_beginners[rows_B][columns_B]=DOT;
           }
           else if(columns_B==3||columns_B==9)
           {
@@ -57,7 +59,7 @@ void creat_initial_grid_for_beginners(char array_of_grid_of_beginners[9][13])
     }
 }   
 //Experts
-void creat_initial_grid_for_experts(char array_of_grid_of_experts[17][25])
+void creat_initial_grid_for_experts(unsigned char array_of_grid_of_experts[17][25])
 {
   for(int rows_E=0;rows_E<17;rows_E++)
   {
@@ -67,7 +69,7 @@ void creat_initial_grid_for_experts(char array_of_grid_of_experts[17][25])
         {
             if(columns_E%6==0)
             {
-                array_of_grid_of_experts[rows_E][columns_E]='.';
+                array_of_grid_of_experts[rows_E][columns_E]=DOT;
             }
             else if(columns_E==3||columns_E==9||columns_E==15||columns_E==21)
             {
