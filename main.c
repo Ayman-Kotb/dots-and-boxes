@@ -90,13 +90,13 @@ int main()
     {
       if(i%2==0)
       {
-         player_one_turns(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,Name_Player1);
-         print_after_change_beginners(array_of_grid_of_beginners,1);
+         player_one_turn(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,Name_Player1);
+         print_after_change_experts(array_of_grid_of_experts,1);
       }
       else
       {
-         player_two_turn(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,Name_Player1);
-         print_after_change_beginners(array_of_grid_of_beginners,2);
+         player_two_turn(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,Name_Player2);
+         print_after_change_experts(array_of_grid_of_experts,2);
       }
       
     }

@@ -2,12 +2,12 @@
 #include<stdlib.h>
 #include<string.h>
 
-int  Check_Letter_In_Array_Of_Experts(char letter_changed ,char array_of_grid_of_experts[17][25]) // check letter choosen in array
+int  Check_Letter_In_Array_Of_Experts(char letter_changed ,unsigned char array_of_grid_of_experts[21][31]) // check letter choosen in array
 { 
   int Found = 0;
-  for(int row_c = 0; row_c <17; row_c++)
+  for(int row_c = 0; row_c <21; row_c++)
   {
-    for(int col_c = 0; col_c <25; col_c++)
+    for(int col_c = 0; col_c <31; col_c++)
     {
       if(array_of_grid_of_experts[row_c][col_c]==letter_changed)
       {
@@ -29,7 +29,7 @@ int  Check_Letter_In_Array_Of_Experts(char letter_changed ,char array_of_grid_of
     return 2;
   }
 }
-int Check_Letter_In_Array_Of_Beginners(char letter_changed,char array_of_grid_of_beginners[9][13]) // check letter choosen in array
+int Check_Letter_In_Array_Of_Beginners(char letter_changed,unsigned char array_of_grid_of_beginners[9][13]) // check letter choosen in array
 {
   int Found = 0;
   for(int row_c = 0; row_c <9; row_c++)

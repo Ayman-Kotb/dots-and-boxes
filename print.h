@@ -11,11 +11,11 @@ void print_initial_B(unsigned char array_of_grid_of_beginners[9][13])
       {
           if(array_of_grid_of_beginners[row][column]=='.')
           {
-            printf(GREEN" %c"RESET,array_of_grid_of_beginners[row][column]);
+            printf(MAGENTA"%c"RESET,array_of_grid_of_beginners[row][column]);
           }
           else
           {
-            printf((MAGENTA" %c"RESET),array_of_grid_of_beginners[row][column]);
+            printf((GREEN"%c"RESET),array_of_grid_of_beginners[row][column]);
           }
       }
       printf("\n");
@@ -30,11 +30,11 @@ void print_initial_E(unsigned char array_of_grid_of_experts[21][31])
     {
         if(array_of_grid_of_experts[row][column]=='.')
         {
-          printf(GREEN" %c"RESET,array_of_grid_of_experts[row][column]);
+          printf(MAGENTA"%c"RESET,array_of_grid_of_experts[row][column]);
         }
         else
         {
-          printf((MAGENTA" %c"RESET),array_of_grid_of_experts[row][column]);
+          printf((GREEN"%c"RESET),array_of_grid_of_experts[row][column]);
         }
     }
     printf("\n");
@@ -49,11 +49,11 @@ void print_after_change_beginners(unsigned char array_of_grid_of_beginners[9][13
       {
           if(array_of_grid_of_beginners[i][j]=='.')
           {
-            printf(GREEN" %c"RESET,array_of_grid_of_beginners[i][j]);
+            printf(MAGENTA"%c"RESET,array_of_grid_of_beginners[i][j]);
           }
           else if((i==row_to_print&&j==column_to_print)&&(turn_color_b==1))
           {
-            printf(RED" %c"RESET,array_of_grid_of_beginners[i][j]);
+            printf(RED"%c"RESET,array_of_grid_of_beginners[i][j]);
             if(array_of_grid_of_beginners[i][j]=='|')
             {
               row_to_print++;
@@ -65,7 +65,7 @@ void print_after_change_beginners(unsigned char array_of_grid_of_beginners[9][13
           }
           else if((i==row_to_print&&j==column_to_print)&&(turn_color_b==2||turn_color_b==0))
           {
-            printf(YELLOW" %c"RESET,array_of_grid_of_beginners[i][j]);
+            printf(YELLOW"%c"RESET,array_of_grid_of_beginners[i][j]);
             if(array_of_grid_of_beginners[i][j]=='|')
             {
               row_to_print++;
@@ -77,7 +77,7 @@ void print_after_change_beginners(unsigned char array_of_grid_of_beginners[9][13
           }
           else
           {
-            printf((MAGENTA" %c"RESET),array_of_grid_of_beginners[i][j]);
+            printf((GREEN"%c"RESET),array_of_grid_of_beginners[i][j]);
           }
       } 
       printf("\n");
@@ -92,11 +92,35 @@ void print_after_change_experts(unsigned char array_of_grid_of_experts[21][31],i
       {
           if(array_of_grid_of_experts[i][j]=='.')
           {
-            printf(GREEN" %c"RESET,array_of_grid_of_experts[i][j]);
+            printf(MAGENTA"%c"RESET,array_of_grid_of_experts[i][j]);
+          }
+          else if((i==row_to_print&&j==column_to_print)&&(turn_color_e==1))
+          {
+            printf(RED"%c"RESET,array_of_grid_of_experts[i][j]);
+            if(array_of_grid_of_experts[i][j]=='|')
+            {
+              row_to_print++;
+            }
+            else if(array_of_grid_of_experts[i][j]=='-')
+            {
+              column_to_print++;
+            }
+          }
+          else if((i==row_to_print&&j==column_to_print)&&(turn_color_e==2||turn_color_e==0))
+          {
+            printf(YELLOW"%c"RESET,array_of_grid_of_experts[i][j]);
+            if(array_of_grid_of_experts[i][j]=='|')
+            {
+              row_to_print++;
+            }
+            else if(array_of_grid_of_experts[i][j]=='-')
+            {
+              column_to_print++;
+            }
           }
           else
           {
-            printf((MAGENTA" %c"RESET),array_of_grid_of_experts[i][j]);
+            printf((GREEN"%c"RESET),array_of_grid_of_experts[i][j]);
           }
       }
       printf("\n");
