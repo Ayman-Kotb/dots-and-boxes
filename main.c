@@ -10,7 +10,7 @@
 
 //arrays
 unsigned char array_of_grid_of_beginners[9][13];
-unsigned char array_of_grid_of_experts[17][25];
+unsigned char array_of_grid_of_experts[21][31];
 // code
 int main()
 {

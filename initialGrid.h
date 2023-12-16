@@ -57,7 +57,7 @@ void creat_initial_grid_for_beginners(unsigned char array_of_grid_of_beginners[9
     }
 }   
 //Experts
-void creat_initial_grid_for_experts(unsigned char array_of_grid_of_experts[17][25])
+void creat_initial_grid_for_experts(unsigned char array_of_grid_of_experts[21][31])
 {
   for(int rows_E=0;rows_E<21;rows_E++)
   {

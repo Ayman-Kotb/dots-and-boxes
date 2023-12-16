@@ -22,11 +22,11 @@ void print_initial_B(unsigned char array_of_grid_of_beginners[9][13])
     }
 }
 // experts initial
-void print_initial_E(unsigned char array_of_grid_of_experts[17][25])
+void print_initial_E(unsigned char array_of_grid_of_experts[21][31])
 {
-  for(int row=0;row<17;row++)
+  for(int row=0;row<21;row++)
   {
-    for(int column=0;column<25;column++)
+    for(int column=0;column<31;column++)
     {
         if(array_of_grid_of_experts[row][column]=='.')
         {
