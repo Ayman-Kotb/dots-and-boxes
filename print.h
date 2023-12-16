@@ -63,11 +63,23 @@ void print_after_change_beginners(unsigned char array_of_grid_of_beginners[9][13
               column_to_print++;
             }
           }
+          else if((i==row_to_print&&j==column_to_print)&&(turn_color_b==2||turn_color_b==0))
+          {
+            printf(YELLOW" %c"RESET,array_of_grid_of_beginners[i][j]);
+            if(array_of_grid_of_beginners[i][j]=='|')
+            {
+              row_to_print++;
+            }
+            else if(array_of_grid_of_beginners[i][j]=='-')
+            {
+              column_to_print++;
+            }
+          }
           else
           {
             printf((MAGENTA" %c"RESET),array_of_grid_of_beginners[i][j]);
           }
-      }
+      } 
       printf("\n");
     }
 }
