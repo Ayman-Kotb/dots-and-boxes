@@ -16,10 +16,8 @@ int main()
 {
     int MODE_B_E = 0;
     int against;
-    int x;
     char Name_Player1[10];
     char Name_Player2[10];
-    scanf("%d", &x);
     //TAke names and who play against:
     printf("\n"REDS"Welcome to Dots and Boxes Game!"RESET"\n\n");
     printf("what mode U want to play\n1: Experts Mode\n2: Beginner Mode\n");
