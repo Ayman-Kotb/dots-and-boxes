@@ -1,8 +1,6 @@
 #include <stdio.h> 
 // color space
 #include <string.h>
-# define DOT '.'
-# define DASH '-'
 #define RED "\e[0;31m"
 #define GREEN "\e[0;32m"
 #define CYAN "\e[0;36m"
@@ -24,7 +22,7 @@ void creat_initial_grid_for_beginners(unsigned char array_of_grid_of_beginners[9
         {
           if(columns_B%6==0)
           {
-            array_of_grid_of_beginners[rows_B][columns_B]=DOT;
+            array_of_grid_of_beginners[rows_B][columns_B]='.';
           }
           else if(columns_B==3||columns_B==9)
           {
@@ -61,17 +59,17 @@ void creat_initial_grid_for_beginners(unsigned char array_of_grid_of_beginners[9
 //Experts
 void creat_initial_grid_for_experts(unsigned char array_of_grid_of_experts[17][25])
 {
-  for(int rows_E=0;rows_E<17;rows_E++)
+  for(int rows_E=0;rows_E<21;rows_E++)
   {
-    for(int columns_E=0;columns_E<25;columns_E++)
+    for(int columns_E=0;columns_E<31;columns_E++)
     {
         if(rows_E%4==0)
         {
             if(columns_E%6==0)
             {
-                array_of_grid_of_experts[rows_E][columns_E]=DOT;
+                array_of_grid_of_experts[rows_E][columns_E]='.';
             }
-            else if(columns_E==3||columns_E==9||columns_E==15||columns_E==21)
+            else if(columns_E==3||columns_E==9||columns_E==15||columns_E==21||columns_E==27)
             {
                 array_of_grid_of_experts[rows_E][columns_E]=('A'+capital_letters_of_grid);
                 capital_letters_of_grid++;

@@ -41,7 +41,7 @@ void print_initial_E(unsigned char array_of_grid_of_experts[17][25])
   }
 }
 // beginners after change
-void print_after_change_beginners(unsigned char array_of_grid_of_beginners[9][13])
+void print_after_change_beginners(unsigned char array_of_grid_of_beginners[9][13],int turn_color_b)
 {
   for (int i=0;i<9;i++)
     {
@@ -51,6 +51,11 @@ void print_after_change_beginners(unsigned char array_of_grid_of_beginners[9][13
           {
             printf(GREEN" %c"RESET,array_of_grid_of_beginners[i][j]);
           }
+          /*else if((i==row_to_print&&j==column_to_print)&&(turn_color_b==1))
+          {
+            printf(RED" %c"RESET,array_of_grid_of_beginners[i][j]);
+            column_to_print++;
+          }*/
           else
           {
             printf((MAGENTA" %c"RESET),array_of_grid_of_beginners[i][j]);
@@ -60,7 +65,7 @@ void print_after_change_beginners(unsigned char array_of_grid_of_beginners[9][13
     }
 }
 // experts after change
-void print_after_change_experts(unsigned char array_of_grid_of_experts[17][25])
+void print_after_change_experts(unsigned char array_of_grid_of_experts[17][25],int turn_color_e)
 {
   for (int i=0;i<17;i++)
     {
