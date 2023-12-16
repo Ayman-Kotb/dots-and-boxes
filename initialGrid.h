@@ -13,19 +13,19 @@
 int capital_letters_of_grid = 0;
 int small_letters_of_grid = 0;
 //Beginners
-void creat_initial_grid_for_beginners(unsigned char array_of_grid_of_beginners[9][13])
+void creat_initial_grid_for_beginners(unsigned char array_of_grid_of_beginners[9][17])
 {
     for(int rows_B = 0; rows_B < 9; rows_B++)
     {
-      for (int columns_B = 0; columns_B < 13; columns_B++)
+      for (int columns_B = 0; columns_B < 17; columns_B++)
       {
         if(rows_B%4==0)
         {
-          if(columns_B%6==0)
+          if(columns_B%8==0)
           {
             array_of_grid_of_beginners[rows_B][columns_B]='.';
           }
-          else if(columns_B==3||columns_B==9)
+          else if(columns_B==4||columns_B==12)
           {
             array_of_grid_of_beginners[rows_B][columns_B]=('A'+capital_letters_of_grid);
             capital_letters_of_grid++;
@@ -37,7 +37,7 @@ void creat_initial_grid_for_beginners(unsigned char array_of_grid_of_beginners[9
         }
         else
         {
-          if(columns_B%6==0)
+          if(columns_B%8==0)
           {
              if(rows_B%2==0)
              {
@@ -58,19 +58,19 @@ void creat_initial_grid_for_beginners(unsigned char array_of_grid_of_beginners[9
     }
 }   
 //Experts
-void creat_initial_grid_for_experts(unsigned char array_of_grid_of_experts[21][31])
+void creat_initial_grid_for_experts(unsigned char array_of_grid_of_experts[21][41])
 {
   for(int rows_E=0;rows_E<21;rows_E++)
   {
-    for(int columns_E=0;columns_E<31;columns_E++)
+    for(int columns_E=0;columns_E<41;columns_E++)
     {
         if(rows_E%4==0)
         {
-            if(columns_E%6==0)
+            if(columns_E%8==0)
             {
                 array_of_grid_of_experts[rows_E][columns_E]='.';
             }
-            else if(columns_E==3||columns_E==9||columns_E==15||columns_E==21||columns_E==27)
+            else if(columns_E==4||columns_E==12||columns_E==20||columns_E==28||columns_E==36)
             {
                 array_of_grid_of_experts[rows_E][columns_E]=('A'+capital_letters_of_grid);
                 capital_letters_of_grid++;
@@ -82,7 +82,7 @@ void creat_initial_grid_for_experts(unsigned char array_of_grid_of_experts[21][3
         }
         else
         {
-            if(columns_E%6==0)
+            if(columns_E%8==0)
             {
                 if(rows_E%2==0)
                 {

@@ -9,8 +9,8 @@
 #include "print.h"
 
 //arrays
-unsigned char array_of_grid_of_beginners[9][13];
-unsigned char array_of_grid_of_experts[21][31];
+unsigned char array_of_grid_of_beginners[9][17];
+unsigned char array_of_grid_of_experts[21][41];
 // code
 int main()
 {
@@ -86,18 +86,5 @@ int main()
        print_initial_B(array_of_grid_of_beginners);
        printf("\n=====================================================\n");//still
     }
-    for(int i=0;i<6;i++)
-    {
-      if(i%2==0)
-      {
-         player_one_turn(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,Name_Player1);
-         print_after_change_experts(array_of_grid_of_experts,1);
-      }
-      else
-      {
-         player_two_turn(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,Name_Player2);
-         print_after_change_experts(array_of_grid_of_experts,2);
-      }
-      
-    }
+    return 0;
 }
