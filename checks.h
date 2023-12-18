@@ -9,7 +9,7 @@ int  Check_Letter_In_Array_Of_Experts(char letter_changed ,unsigned char array_o
   {
     for(int col_c = 0; col_c <41; col_c++)
     {
-      if((array_of_grid_of_experts[row_c][col_c]==letter_changed)&&(letter_changed!='.'))
+      if((array_of_grid_of_experts[row_c][col_c]==letter_changed)&&(letter_changed!='*'))
       {
         if(letter_changed == '|' && array_of_grid_of_experts[17][24]=='|')
         {
@@ -44,7 +44,7 @@ int Check_Letter_In_Array_Of_Beginners(char letter_changed,unsigned char array_o
   {
     for(int col_c = 0; col_c <17; col_c++)
     {
-      if((array_of_grid_of_beginners[row_c][col_c]==letter_changed)&&(letter_changed != '.'))
+      if((array_of_grid_of_beginners[row_c][col_c]==letter_changed)&&(letter_changed != '*'))
       {
         Found = 1;
         break;

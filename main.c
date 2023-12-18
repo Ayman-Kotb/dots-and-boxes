@@ -89,7 +89,7 @@ int main()
     for (int i = 0; i < 10; i++)
     {
       player_one_turn(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,Name_Player1);
-      print_after_change_experts(array_of_grid_of_experts,1);
+      print_after_change_beginners(array_of_grid_of_beginners,2);
     }
     
     return 0;
