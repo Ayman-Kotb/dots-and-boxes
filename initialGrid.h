@@ -16,6 +16,7 @@
 // code
 int capital_letters_of_grid = 0;
 int small_letters_of_grid = 0;
+int small_number_of_grid =0;
 //Beginners
 void creat_initial_grid_for_beginners(unsigned char array_of_grid_of_beginners[9][17])
 {
@@ -76,8 +77,8 @@ void creat_initial_grid_for_experts(unsigned char array_of_grid_of_experts[21][4
             }
             else if(columns_E==4||columns_E==12||columns_E==20||columns_E==28||columns_E==36)
             {
-                array_of_grid_of_experts[rows_E][columns_E]=('A'+capital_letters_of_grid);
-                capital_letters_of_grid++;
+                  array_of_grid_of_experts[rows_E][columns_E]=('A'+capital_letters_of_grid);
+                  capital_letters_of_grid++;
             }
             else
             {
@@ -90,8 +91,8 @@ void creat_initial_grid_for_experts(unsigned char array_of_grid_of_experts[21][4
             {
                 if(rows_E%2==0)
                 {
-                    array_of_grid_of_experts[rows_E][columns_E]=('a'+small_letters_of_grid);
-                    small_letters_of_grid++;
+                        array_of_grid_of_experts[rows_E][columns_E]=('a'+small_letters_of_grid);
+                        small_letters_of_grid++;
                 }
                 else
                 {

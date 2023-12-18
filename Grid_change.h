@@ -15,23 +15,23 @@ void grid_after_change_of_beginners(char letter_changed,unsigned char array_of_g
           if(array_of_grid_of_beginners[row_ch][column_ch]==letter_changed)
           {
             if ((letter_changed)>96)
-            { 
-                row_to_print = row_ch-1;
-                column_to_print = column_ch;
-                array_of_grid_of_beginners[row_ch][column_ch]='|';
-                array_of_grid_of_beginners[row_ch-1][column_ch]= '|';
-                array_of_grid_of_beginners[row_ch+1][column_ch]= '|';
+            {
+                  row_to_print = row_ch-1;
+                  column_to_print = column_ch;
+                  array_of_grid_of_beginners[row_ch][column_ch]='|';
+                  array_of_grid_of_beginners[row_ch-1][column_ch]= '|';
+                  array_of_grid_of_beginners[row_ch+1][column_ch]= '|';
             }
             else if (letter_changed<96)
             {
-                row_to_print = row_ch;
-                column_to_print = column_ch-3;
-                array_of_grid_of_beginners[row_ch][column_ch]='-';
-                for (int i = 1; i < 4 ; i++)
-                {
-                array_of_grid_of_beginners[row_ch][column_ch-i]= '-';
-                array_of_grid_of_beginners[row_ch][column_ch+i]= '-';
-                }     
+                  row_to_print = row_ch;
+                  column_to_print = column_ch-3;
+                  array_of_grid_of_beginners[row_ch][column_ch]='-';
+                  for (int i = 1; i < 4 ; i++)
+                  {
+                  array_of_grid_of_beginners[row_ch][column_ch-i]= '-';
+                  array_of_grid_of_beginners[row_ch][column_ch+i]= '-';
+                  }
             }
             found_in = 1 ;
           }
@@ -52,12 +52,22 @@ void grid_after_change_of_experts(char letter_changed,unsigned char array_of_gri
           {
             if ((letter_changed)>96)
             { 
-                row_to_print = row_ch-1;
-                column_to_print = column_ch;
-                array_of_grid_of_experts[row_ch][column_ch]='|';
-                array_of_grid_of_experts[row_ch-1][column_ch]= '|';
-                array_of_grid_of_experts[row_ch+1][column_ch]= '|';
-                
+                if(letter_changed == '|')
+                {
+                  row_to_print = 17;
+                  column_to_print = 24 ;
+                  array_of_grid_of_experts[18][24]='|';
+                  array_of_grid_of_experts[17][24]= '|';
+                  array_of_grid_of_experts[19][24]= '|';
+                }
+                else
+                {
+                  row_to_print = row_ch-1;
+                  column_to_print = column_ch;
+                  array_of_grid_of_experts[row_ch][column_ch]='|';
+                  array_of_grid_of_experts[row_ch-1][column_ch]= '|';
+                  array_of_grid_of_experts[row_ch+1][column_ch]= '|';
+                }
             }
             else if (letter_changed<96)
             {

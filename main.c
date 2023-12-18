@@ -48,7 +48,7 @@ int main()
         scanf("%s",&Name_Player1);
         printf("whats your name, player 2\n");
         scanf("%s",&Name_Player2);
-        printf("\n%s has Red color , %s has Yellow color\n\n", Name_Player1, Name_Player2);
+        printf("\n%s has RED color , %s has BLUE color\n\n", Name_Player1, Name_Player2);
         printf(BLKHD"this is initial grid"RESET"\n");
         printf("====================================================\n\n");
     }
@@ -56,7 +56,7 @@ int main()
     {
         printf("whats your name\n");
         scanf("%s",&Name_Player1);
-        printf("\nU has Red color , Computer has Yellow color\n\n");
+        printf("\nU has RED color , Computer has BLUE color\n\n");
         printf(BLKHD"this is initial grid"RESET"\n");
         printf("====================================================\n\n");
     }
@@ -86,5 +86,11 @@ int main()
        print_initial_B(array_of_grid_of_beginners);
        printf("\n=====================================================\n");//still
     }
+    for (int i = 0; i < 10; i++)
+    {
+      player_one_turn(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,Name_Player1);
+      print_after_change_experts(array_of_grid_of_experts,1);
+    }
+    
     return 0;
 }

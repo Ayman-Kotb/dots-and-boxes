@@ -15,7 +15,7 @@ void print_initial_B(unsigned char array_of_grid_of_beginners[9][17])
           }
           else
           {
-            printf((BAYLE" %c"RESET),array_of_grid_of_beginners[row][column]);
+            printf((YELLOW" %c"RESET),array_of_grid_of_beginners[row][column]);
           }
       }
       printf("\n");
@@ -34,7 +34,7 @@ void print_initial_E(unsigned char array_of_grid_of_experts[21][41])
         }
         else
         {
-          printf((BAYLE"%c"RESET),array_of_grid_of_experts[row][column]);
+          printf((YELLOW"%c"RESET),array_of_grid_of_experts[row][column]);
         }
     }
     printf("\n");
@@ -77,7 +77,7 @@ void print_after_change_beginners(unsigned char array_of_grid_of_beginners[9][17
           }
           else
           {
-            printf((BAYLE" %c"RESET),array_of_grid_of_beginners[i][j]);
+            printf((YELLOW" %c"RESET),array_of_grid_of_beginners[i][j]);
           }
       } 
       printf("\n");
@@ -120,7 +120,7 @@ void print_after_change_experts(unsigned char array_of_grid_of_experts[21][41],i
           }
           else
           {
-            printf((BAYLE"%c"RESET),array_of_grid_of_experts[i][j]);
+            printf((YELLOW"%c"RESET),array_of_grid_of_experts[i][j]);
           }
       }
       printf("\n");
