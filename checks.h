@@ -127,5 +127,4 @@ int check_boxes(int MODE_B_E,unsigned char array_of_grid_of_beginners[9][17],uns
     }
     return number_of_lines;
   }
-  
 }

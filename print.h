@@ -145,7 +145,14 @@ void print_after_change_experts(unsigned char array_of_grid_of_experts[21][41],i
           {
             if(array_of_grid_of_experts[i][j]=='-'||array_of_grid_of_experts[i][j]=='|')
             {
-              printf((WHITE"%c"RESET),array_of_grid_of_experts[i][j]);
+              if(i==18&&j==24&& array_of_grid_of_experts[19][24]==' ')
+              {
+                printf((YELLOW"%c"RESET),array_of_grid_of_experts[i][j]);
+              }
+              else
+              {
+                printf((WHITE"%c"RESET),array_of_grid_of_experts[i][j]);
+              } 
             }
             else
             {
