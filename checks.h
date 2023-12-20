@@ -1,10 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-int row_e =0;//for expert go to check boxes from main
-int col_e =0;//for expert go to check boxes from main
-int row_b =0;//for beginners go to check boxes from main
-int col_b =0;//for beginners go to check boxes from main
+int row_e =0;//for expert go to check boxes from main     comes from check letters
+int col_e =0;//for expert go to check boxes from main        comes from check letters
+int row_b =0;//for beginners go to check boxes from main      comes from check letters
+int col_b =0;//for beginners go to check boxes from main        comes from check letters
 int  Check_Letter_In_Array_Of_Experts(char letter_changed ,unsigned char array_of_grid_of_experts[21][41]) // check letter choosen in array
 { 
   int Found = 0;
