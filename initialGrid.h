@@ -3,6 +3,7 @@
 // color space
 #define RED "\e[0;31m"
 #define BLUE "\e[0;34m"
+#define WHITE "\e[0;37m"
 #define BAYLE "\e[1;93m"
 #define BIBLE "\e[1;94m"
 #define BRED "\e[1;91m"

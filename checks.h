@@ -46,8 +46,16 @@ int Check_Letter_In_Array_Of_Beginners(char letter_changed,unsigned char array_o
     {
       if((array_of_grid_of_beginners[row_c][col_c]==letter_changed)&&(letter_changed != '*'))
       {
-        Found = 1;
-        break;
+        if(letter_changed=='|')
+        {
+          Found = 0;
+          break;
+        }
+        else
+        {
+          Found = 1;
+          break;
+        }
       }
     }
     if(Found==1)

@@ -86,10 +86,10 @@ int main()
        print_initial_B(array_of_grid_of_beginners);
        printf("\n=====================================================\n");//still
     }
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 12; i++)
     {
       player_one_turn(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,Name_Player1);
-      print_after_change_beginners(array_of_grid_of_beginners,2);
+      print_after_change_experts(array_of_grid_of_experts,2);
     }
     
     return 0;
