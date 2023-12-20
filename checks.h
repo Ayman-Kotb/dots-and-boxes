@@ -1,10 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-int row_e =0;
-int col_e =0;
-int row_b =0;
-int col_b =0;
+int row_e =0;//for expert go to check boxes from main
+int col_e =0;//for expert go to check boxes from main
+int row_b =0;//for beginners go to check boxes from main
+int col_b =0;//for beginners go to check boxes from main
 int  Check_Letter_In_Array_Of_Experts(char letter_changed ,unsigned char array_of_grid_of_experts[21][41]) // check letter choosen in array
 { 
   int Found = 0;
@@ -17,6 +17,11 @@ int  Check_Letter_In_Array_Of_Experts(char letter_changed ,unsigned char array_o
         row_e = row_c;
         col_e = col_c;
         if(letter_changed == '|' && array_of_grid_of_experts[17][24]=='|')
+        {
+          Found = 0;
+          break;
+        }
+        else if(letter_changed == '1'||letter_changed == '2'||letter_changed == '0'||letter_changed =='-')
         {
           Found = 0;
           break;
@@ -54,6 +59,11 @@ int Check_Letter_In_Array_Of_Beginners(char letter_changed,unsigned char array_o
         row_b = row_c;
         col_b = col_c;
         if(letter_changed=='|')
+        {
+          Found = 0;
+          break;
+        }
+        else if(letter_changed == '1'||letter_changed == '2'||letter_changed == '0'||letter_changed == '-')
         {
           Found = 0;
           break;
@@ -104,7 +114,7 @@ int check_boxes(int MODE_B_E,unsigned char array_of_grid_of_beginners[9][17],uns
     {
       array_of_grid_of_beginners[row_mid][column_mid] = '2';
     }
-    return number_of_lines;
+    return number_of_lines;//return number of lines      can be important
   }
   else
   {
@@ -125,6 +135,6 @@ int check_boxes(int MODE_B_E,unsigned char array_of_grid_of_beginners[9][17],uns
     {
       array_of_grid_of_experts[row_mid][column_mid]='2';
     }
-    return number_of_lines;
+    return number_of_lines;//return number of lines           can be important
   }
 }
