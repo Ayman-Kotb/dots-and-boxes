@@ -65,6 +65,51 @@ int main()
        creat_initial_grid_for_experts(array_of_grid_of_experts);
        print_initial_E(array_of_grid_of_experts);
        printf("\n=====================================================\n");//still
+        for (int i = 0; i < 60; i++)
+    {
+      if(i%2==0)
+      {
+        player_one_turn(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,data.Name_Player1);
+        if(letter_be_changed>96)
+        {
+           int right_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_e,col_e+4,1);
+           if (right_box==4){data.player_one_score++;}
+           int left_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_e,col_e-4,1);
+           if(left_box==4){data.player_one_score++;}
+        }
+        else
+        {
+           int lower_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_e+2,col_e,1);
+           if(lower_box ==4){data.player_one_score++;}
+           int upper_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_e-2,col_e,1);
+           if(upper_box ==4){data.player_one_score++;}
+        }      
+        print_after_change_experts(array_of_grid_of_experts,1);
+        printf("\n%s score : %d\n",data.Name_Player1,data.player_one_score);
+        printf("%s score : %d\n",data.Name_Player2,data.player_two_score);
+      }
+      else
+      {
+         player_two_turn(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,data.Name_Player2);
+        if(letter_be_changed>96)
+        {
+           int right_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_e,col_e+4,2);
+           if(right_box ==4){data.player_two_score++;}
+           int left_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_e,col_e-4,2);
+           if( left_box==4){data.player_two_score++;}
+        }
+        else
+        {
+           int lower_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_e+2,col_e,2);
+           if(lower_box==4){data.player_two_score++;}
+           int upper_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_e-2,col_e,2);
+           if(upper_box ==4){data.player_two_score++;}
+        }      
+        print_after_change_experts(array_of_grid_of_experts,2);
+        printf("\n%s score : %d\n",data.Name_Player1,data.player_one_score);
+        printf("%s score : %d\n",data.Name_Player2,data.player_two_score);
+      }
+    }
     }
     else if(MODE_B_E==1&&against==2)//one player vs computer in the experts mode
     {
@@ -77,32 +122,28 @@ int main()
        creat_initial_grid_for_beginners(array_of_grid_of_beginners);
        print_initial_B(array_of_grid_of_beginners);
        printf("\n=====================================================\n");//still
-    }
-    else//one player vs computer in the beginners mode
-    {
-       creat_initial_grid_for_beginners(array_of_grid_of_beginners);
-       print_initial_B(array_of_grid_of_beginners);
-       printf("\n=====================================================\n");//still
-    }
-    // be changed
-    for (int i = 0; i < 12; i++)
+       for (int i = 0; i < 15; i++)
     {
       if(i%2==0)
       {
         player_one_turn(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,data.Name_Player1);
         if(letter_be_changed>96)
         {
-           int p1 = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b,col_b+4,1);
-           if (p1==4){data.player_one_score++;}
-           int p2 = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b,col_b-4,1);
-           if(p2==4){data.player_one_score++;}
+           int right_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b,col_b+4,1);
+           if (right_box==4){data.player_one_score++;
+           i++ ; }
+           int left_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b,col_b-4,1);
+           if(left_box==4){data.player_one_score++;
+           i++ ;}
         }
         else
         {
-           int p3 = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b+2,col_b,1);
-           if(p3 ==4){data.player_one_score++;}
-           int p4 = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b-2,col_b,1);
-           if(p4 ==4){data.player_one_score++;}
+           int lower_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b+2,col_b,1);
+           if(lower_box ==4){data.player_one_score++;
+           i++ ;}
+           int upper_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b-2,col_b,1);
+           if(upper_box ==4){data.player_one_score++;
+           i++ ;}
         }      
         print_after_change_beginners(array_of_grid_of_beginners,1);
         printf("\n%s score : %d\n",data.Name_Player1,data.player_one_score);
@@ -113,22 +154,37 @@ int main()
          player_two_turn(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,data.Name_Player2);
         if(letter_be_changed>96)
         {
-           int y1 = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b,col_b+4,2);
-           if(y1==4){data.player_two_score++;}
-           int y2 = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b,col_b-4,2);
-           if(y2==4){data.player_two_score++;}
+           int right_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b,col_b+4,2);
+           if(right_box==4){data.player_two_score++;
+           i++ ;}
+           int left_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b,col_b-4,2);
+           if(left_box==4){data.player_two_score++;
+           i++ ;}
         }
         else
         {
-           int y3 = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b+2,col_b,2);
-           if(y3==4){data.player_two_score++;}
-           int y4 = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b-2,col_b,2);
-           if(y4==4){data.player_two_score++;}
+           int lower_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b+2,col_b,2);
+           if(lower_box==4){data.player_two_score++;
+           i++ ;}
+           int upper_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b-2,col_b,2);
+           if(upper_box==4){data.player_two_score++;
+           i++ ;}
         }      
         print_after_change_beginners(array_of_grid_of_beginners,2);
         printf("\n%s score : %d\n",data.Name_Player1,data.player_one_score);
         printf("%s score : %d\n",data.Name_Player2,data.player_two_score);
       }
     }
+    }
+
+
+    else//one player vs computer in the beginners mode
+    {
+       creat_initial_grid_for_beginners(array_of_grid_of_beginners);
+       print_initial_B(array_of_grid_of_beginners);
+       printf("\n=====================================================\n");//still
+    }
+    // be changed
+   
     return 0;
 }
