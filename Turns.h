@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 char letter_be_changed = '0';
+char input_from_user[100];
 void player_one_turn(int MODE_B_E ,unsigned char array_of_grid_of_beginners[9][17],unsigned char array_of_grid_of_experts[21][41],char Name_Player1[10])
 {
     int checked_letter = 2;
