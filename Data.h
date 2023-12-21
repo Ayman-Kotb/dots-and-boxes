@@ -8,7 +8,6 @@ typedef struct{
     int computer_score;
     char Name_Player1[50];
     char Name_Player2[50];
-    int remain;
 }Data; 
 Data data;
 

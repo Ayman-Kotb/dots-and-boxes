@@ -27,19 +27,15 @@ void creat_initial_grid_for_beginners(unsigned char array_of_grid_of_beginners[9
       {
         if(rows_B%4==0)
         {
-          if(columns_B%8==0)
-          {
-            array_of_grid_of_beginners[rows_B][columns_B]='*';
-          }
-          else if(columns_B==4||columns_B==12)
-          {
+         if(columns_B%8==0)
+           { array_of_grid_of_beginners[rows_B][columns_B]='*'; }
+         else if(columns_B==4||columns_B==12)
+           {
             array_of_grid_of_beginners[rows_B][columns_B]=('A'+capital_letters_of_grid);
             capital_letters_of_grid++;
-          }
-          else
-          {
-            array_of_grid_of_beginners[rows_B][columns_B]=' ';
-          }
+           }
+         else
+           { array_of_grid_of_beginners[rows_B][columns_B]=' '; }
         }
         else
         {
@@ -51,14 +47,10 @@ void creat_initial_grid_for_beginners(unsigned char array_of_grid_of_beginners[9
                 small_letters_of_grid++;
              }
              else
-             {
-                array_of_grid_of_beginners[rows_B][columns_B]=' ';
-             }
+             { array_of_grid_of_beginners[rows_B][columns_B]=' '; }
           }
           else
-          {
-                array_of_grid_of_beginners[rows_B][columns_B]=' ';
-          }
+          {  array_of_grid_of_beginners[rows_B][columns_B]=' '; }
         }
       }
     }
@@ -72,19 +64,15 @@ void creat_initial_grid_for_experts(unsigned char array_of_grid_of_experts[21][4
     {
         if(rows_E%4==0)
         {
-            if(columns_E%8==0)
-            {
-                array_of_grid_of_experts[rows_E][columns_E]='*';
-            }
-            else if(columns_E==4||columns_E==12||columns_E==20||columns_E==28||columns_E==36)
+          if(columns_E%8==0)
+            { array_of_grid_of_experts[rows_E][columns_E]='*'; }
+          else if(columns_E==4||columns_E==12||columns_E==20||columns_E==28||columns_E==36)
             {
                   array_of_grid_of_experts[rows_E][columns_E]=('A'+capital_letters_of_grid);
                   capital_letters_of_grid++;
             }
-            else
-            {
-                array_of_grid_of_experts[rows_E][columns_E]=' ';
-            }
+          else
+            {  array_of_grid_of_experts[rows_E][columns_E]=' '; }
         }
         else
         {
@@ -96,14 +84,10 @@ void creat_initial_grid_for_experts(unsigned char array_of_grid_of_experts[21][4
                         small_letters_of_grid++;
                 }
                 else
-                {
-                    array_of_grid_of_experts[rows_E][columns_E]=' ';
-                }
+                { array_of_grid_of_experts[rows_E][columns_E]=' '; }
             }
             else
-            {
-               array_of_grid_of_experts[rows_E][columns_E]=' ';
-            }
+            { array_of_grid_of_experts[rows_E][columns_E]=' '; }
         }
     }
   }
