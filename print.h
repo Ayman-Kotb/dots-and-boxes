@@ -43,7 +43,6 @@ void print_after_change_beginners(unsigned char array_of_grid_of_beginners[9][17
             printf(WHITE"%c"RESET,array_of_grid_of_beginners[i][j]);
           }
           else if(array_of_grid_of_beginners[i][j]=='2' || array_of_grid_of_beginners[i][j]=='0')
-          else if(array_of_grid_of_beginners[i][j]=='2' || array_of_grid_of_beginners[i][j]=='0')
           {
             printf(BIBLE"%c"RESET,array_of_grid_of_beginners[i][j]);
           }
@@ -57,7 +56,6 @@ void print_after_change_beginners(unsigned char array_of_grid_of_beginners[9][17
             if(array_of_grid_of_beginners[i][j]=='|')      row_to_print++;
             else if(array_of_grid_of_beginners[i][j]=='-')    column_to_print++;
           }
-
           else if((i==row_to_print&&j==column_to_print)&&(turn_color_b==2||turn_color_b==0))
           {
             printf(BIBLE"%c"RESET,array_of_grid_of_beginners[i][j]);
