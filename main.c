@@ -94,9 +94,9 @@ int main()
            if(lower_box==4&&upper_box==4){i--;}
          }      
          print_after_change_experts(array_of_grid_of_experts,1);
-         printf(MAGENTA"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(MAGENTA"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(MAGENTA"number of lines remaining : %d\n"RESET,number_of_lines_in_E);
+         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
+         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
+         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_E);
        }
        else if(i%2==1&&number_of_lines_in_E>=0)
        {
@@ -122,9 +122,9 @@ int main()
             if(lower_box==4&&upper_box==4){i--;}
          }      
          print_after_change_experts(array_of_grid_of_experts,2);
-         printf(MAGENTA"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(MAGENTA"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(MAGENTA"number of lines remaining : %d\n"RESET,number_of_lines_in_E);
+         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
+         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
+         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_E);
        }
      } 
     }
@@ -166,9 +166,9 @@ int main()
            if(lower_box==4&&upper_box==4){i--;}
          }      
          print_after_change_beginners(array_of_grid_of_beginners,1);
-         printf(MAGENTA"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(MAGENTA"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(MAGENTA"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
+         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
+         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
+         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
        }
        else if(i%2==1&&number_of_lines_in_B>=0)
        {
@@ -194,9 +194,9 @@ int main()
            if(lower_box==4&&upper_box==4){i--;}
          }      
          print_after_change_beginners(array_of_grid_of_beginners,2);
-         printf(MAGENTA"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(MAGENTA"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(MAGENTA"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
+         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
+         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
+         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
       }
      }
     }
