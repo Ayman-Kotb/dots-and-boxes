@@ -69,7 +69,7 @@ void grid_after_change_of_experts(char letter_changed,unsigned char array_of_gri
                   array_of_grid_of_experts[row_ch+1][column_ch]= '|';
                 }
             }
-            else if (letter_changed<96)
+            else
             {
                 row_to_print = row_ch;
                 column_to_print = column_ch-3;

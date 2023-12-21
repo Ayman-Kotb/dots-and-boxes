@@ -39,14 +39,17 @@ void print_after_change_beginners(unsigned char array_of_grid_of_beginners[9][17
       for(int j=0;j<17;j++)
       {
           if(array_of_grid_of_beginners[i][j]=='*')
-          {printf(WHITE"%c"RESET,array_of_grid_of_beginners[i][j]);  }
-
-          else if(array_of_grid_of_beginners[i][j]=='2')
-          {  printf(BIBLE"%c"RESET,array_of_grid_of_beginners[i][j]);   }
-
-          else if(array_of_grid_of_beginners[i][j]=='1')   
-          {   printf(BRED"%c"RESET,array_of_grid_of_beginners[i][j]);    }
-
+          {
+            printf(WHITE"%c"RESET,array_of_grid_of_beginners[i][j]);
+          }
+          else if(array_of_grid_of_beginners[i][j]=='2' || array_of_grid_of_beginners[i][j]=='0')
+          {
+            printf(BIBLE"%c"RESET,array_of_grid_of_beginners[i][j]);
+          }
+          else if(array_of_grid_of_beginners[i][j]=='1')
+          {
+            printf(BRED"%c"RESET,array_of_grid_of_beginners[i][j]);
+          }
           else if((i==row_to_print&&j==column_to_print)&&(turn_color_b==1))
           {
             printf(BRED"%c"RESET,array_of_grid_of_beginners[i][j]);
