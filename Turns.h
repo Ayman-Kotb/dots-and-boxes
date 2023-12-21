@@ -11,11 +11,6 @@ void player_one_turn(int MODE_B_E ,unsigned char array_of_grid_of_beginners[9][1
       printf("\n"BLKHD"%s, your turn"RESET"\n",Name_Player1);
       printf("please enter the letter U want to change, %s\n",Name_Player1);
       scanf(" %c",&letter_be_changed);
-      while ((letter_be_changed=='1')||(letter_be_changed=='2')||(letter_be_changed=='*'))
-      {
-        printf("invalid character\nplease enter the letter U want to change again, %s\n",Name_Player1) ;
-        scanf(" %c",&letter_be_changed);
-      }
       printf("\n");
       checked_letter = Check_Letter_In_Array_Of_Experts(letter_be_changed,array_of_grid_of_experts);
 
@@ -34,11 +29,6 @@ void player_one_turn(int MODE_B_E ,unsigned char array_of_grid_of_beginners[9][1
       printf("\n"BLKHD"%s,turn"RESET"\n",Name_Player1);
       printf("please enter the letter U want to change, %s\n",Name_Player1);
       scanf(" %c",&letter_be_changed);
-      while ((letter_be_changed=='1')||(letter_be_changed=='2')||(letter_be_changed=='*'))
-      {
-        printf("invalid character\nplease enter the letter U want to change again, %s\n",Name_Player1) ;
-        scanf(" %c",&letter_be_changed);
-      }
       printf("\n");
       checked_letter = Check_Letter_In_Array_Of_Beginners(letter_be_changed,array_of_grid_of_beginners);
 
@@ -61,11 +51,6 @@ void player_two_turn(int MODE_B_E,unsigned char array_of_grid_of_beginners[9][17
       printf("\n"BLKHD"%s,turn"RESET"\n",Name_Player2);
       printf("please enter the letter U want to change, %s\n",Name_Player2);
       scanf(" %c",&letter_be_changed);
-      while ((letter_be_changed=='1')||(letter_be_changed=='2')||(letter_be_changed=='*'))
-      {
-        printf("invalid character\nplease enter the letter U want to change again, %s\n",Name_Player2) ;
-        scanf(" %c",&letter_be_changed);
-      }
       printf("\n");
       checked_letter = Check_Letter_In_Array_Of_Experts(letter_be_changed,array_of_grid_of_experts);
 
@@ -84,11 +69,6 @@ void player_two_turn(int MODE_B_E,unsigned char array_of_grid_of_beginners[9][17
       printf("\n"BLKHD"%s,turn"RESET"\n",Name_Player2);
       printf("please enter the letter U want to change, %s\n",Name_Player2);
       scanf(" %c",&letter_be_changed);
-      while ((letter_be_changed=='1')||(letter_be_changed=='2')||(letter_be_changed=='*'))
-      {
-        printf("invalid character\nplease enter the letter U want to change again, %s\n",Name_Player2) ;
-        scanf(" %c",&letter_be_changed);
-      }
       printf("\n");
       checked_letter = Check_Letter_In_Array_Of_Beginners(letter_be_changed,array_of_grid_of_beginners);
 

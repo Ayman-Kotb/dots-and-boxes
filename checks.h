@@ -12,7 +12,7 @@ int  Check_Letter_In_Array_Of_Experts(char letter_changed ,unsigned char array_o
   {
     for(int col_c = 0; col_c <41; col_c++)
     {
-      if((array_of_grid_of_experts[row_c][col_c]==letter_changed)&&(letter_changed!='*'))
+      if((array_of_grid_of_experts[row_c][col_c]==letter_changed)&&(letter_changed!='+'))
       {
         row_e = row_c;
         col_e = col_c;
@@ -34,18 +34,12 @@ int  Check_Letter_In_Array_Of_Experts(char letter_changed ,unsigned char array_o
       }
     }
     if(Found==1)
-    {
-      break;
-    }
+    break;
   }
   if(Found==1)
-  {
     return 1;
-  }
   else
-  {
-    return 2;
-  }
+    {return 2;}
 }
 int Check_Letter_In_Array_Of_Beginners(char letter_changed,unsigned char array_of_grid_of_beginners[9][17]) // check letter choosen in array
 {
@@ -54,7 +48,7 @@ int Check_Letter_In_Array_Of_Beginners(char letter_changed,unsigned char array_o
   {
     for(int col_c = 0; col_c <17; col_c++)
     {
-      if((array_of_grid_of_beginners[row_c][col_c]==letter_changed)&&(letter_changed != '*'))
+      if((array_of_grid_of_beginners[row_c][col_c]==letter_changed)&&(letter_changed != '+'))
       {
         row_b = row_c;
         col_b = col_c;
@@ -76,18 +70,12 @@ int Check_Letter_In_Array_Of_Beginners(char letter_changed,unsigned char array_o
       }
     }
     if(Found==1)
-    {
       break;
-    }
   }
   if(Found==1)
-  {
     return 1;
-  }
   else
-  {
-    return 2;
-  }
+  { return 2; }
 }
 int check_boxes(int MODE_B_E,unsigned char array_of_grid_of_beginners[9][17],unsigned char array_of_grid_of_experts[21][41],int row_mid,int column_mid,int turn_player)
 {
@@ -102,18 +90,13 @@ int check_boxes(int MODE_B_E,unsigned char array_of_grid_of_beginners[9][17],uns
       row = row_mid + directional_array[0][i];
       column = column_mid + directional_array[1][i];
         if(array_of_grid_of_beginners[row][column]=='-'||array_of_grid_of_beginners[row][column]=='|')
-        {
-          number_of_lines++;
-        }
+        { number_of_lines++; }
     }
     if(number_of_lines==4&&turn_player==1)
-    {
-      array_of_grid_of_beginners[row_mid][column_mid] = '1';
-    }
+    { array_of_grid_of_beginners[row_mid][column_mid] = '1'; }
     else if(number_of_lines==4&&turn_player==2)
-    {
-      array_of_grid_of_beginners[row_mid][column_mid] = '2';
-    }
+    { array_of_grid_of_beginners[row_mid][column_mid] = '2'; }
+
     return number_of_lines;//return number of lines      can be important
   }
   else
@@ -123,18 +106,13 @@ int check_boxes(int MODE_B_E,unsigned char array_of_grid_of_beginners[9][17],uns
       row = row_mid + directional_array[0][i];
       column = column_mid + directional_array[1][i];
         if(array_of_grid_of_experts[row][column]=='-'||array_of_grid_of_experts[row][column]=='|')
-        {
-          number_of_lines++;
-        }
+        { number_of_lines++; }
     }
     if(number_of_lines==4&&turn_player==1)
-    {
-      array_of_grid_of_experts[row_mid][column_mid]='1';
-    }
+    { array_of_grid_of_experts[row_mid][column_mid]='1'; }
     else if(number_of_lines==4&&turn_player==2)
-    {
-      array_of_grid_of_experts[row_mid][column_mid]='2';
-    }
+    { array_of_grid_of_experts[row_mid][column_mid]='2'; }
+
     return number_of_lines;//return number of lines           can be important
   }
 }
