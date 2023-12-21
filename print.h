@@ -43,6 +43,7 @@ void print_after_change_beginners(unsigned char array_of_grid_of_beginners[9][17
             printf(WHITE"%c"RESET,array_of_grid_of_beginners[i][j]);
           }
           else if(array_of_grid_of_beginners[i][j]=='2' || array_of_grid_of_beginners[i][j]=='0')
+          else if(array_of_grid_of_beginners[i][j]=='2' || array_of_grid_of_beginners[i][j]=='0')
           {
             printf(BIBLE"%c"RESET,array_of_grid_of_beginners[i][j]);
           }
@@ -86,10 +87,10 @@ void print_after_change_experts(unsigned char array_of_grid_of_experts[21][41],i
           else if(array_of_grid_of_experts[i][j]=='*')
           { printf(WHITE"%c"RESET,array_of_grid_of_experts[i][j]); }
 
-          else if(array_of_grid_of_experts[i][j]=='2')
+          else if(array_of_grid_of_experts[i][j]=='2' || array_of_grid_of_experts[i][j]=='0' ) // color of winner of boxes 2
           { printf(BIBLE"%c"RESET,array_of_grid_of_experts[i][j]); }
 
-          else if(array_of_grid_of_experts[i][j]=='1')
+          else if(array_of_grid_of_experts[i][j]=='1') //  color of winner of boxes 1
           { printf(BRED"%c"RESET,array_of_grid_of_experts[i][j]);   }
 
           else if((i==row_to_print&&j==column_to_print)&&(turn_color_e==1))
