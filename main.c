@@ -13,8 +13,10 @@
 unsigned char array_of_grid_of_beginners[9][17];
 unsigned char array_of_grid_of_experts[21][41];
 int number_of_lines_in_B = 12; // to fix number of loops
+int*x =&number_of_lines_in_B ;
 int number_of_lines_in_E = 60; // to fix number of loops
 int number_of_boxes_B = 4;
+int *y =& number_of_boxes_B ;
 int number_of_boxes_E = 25;
 // code
 int main()
@@ -144,8 +146,8 @@ int main()
          print_after_change_experts(array_of_grid_of_experts,2);
          printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
          printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_E);
-         printf(BAYLE"number of boxes remaining : %d\n"RESET,number_of_boxes_E);
+         printf(BAYLE"number of lines remaining : %d\n"RESET,*x);
+         printf(BAYLE"number of boxes remaining : %d\n"RESET,*y);
        }
      } 
     }
@@ -162,8 +164,9 @@ int main()
        printf("\n=====================================================\n");//still
        for (int i = 0; i < 15 ;i++ ) // error in number of loops
       {
-      number_of_lines_in_B--; // fix number of loops
-      if(i%2==0&&number_of_lines_in_B>=0)
+        if (*x<0) break; 
+      (*x)--; // fix number of loops
+      if(i%2==0&&(*x)>=0)
        {
          player_one_turn(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,data.Name_Player1);
          if(letter_be_changed>96)
@@ -172,85 +175,25 @@ int main()
            if (right_box==4){
              data.player_one_score++;
              i++ ; 
-             number_of_boxes_B--;
-             for (int j = 0; j < 2; j++)
-             {
-               char x = check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b, col_b+(-4+j*16),1) ;
-             if (x != '0'){
-               print_after_change_beginners(array_of_grid_of_beginners,1);
-         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
-         printf(BAYLE"number of boxes remaining : %d\n"RESET,number_of_boxes_B);
-               grid_after_change_of_beginners(x,array_of_grid_of_beginners) ;
-               number_of_lines_in_B -- ;
-               data.player_one_score++;
-               number_of_boxes_B--;
-               i++ ;
-               if (i%2==1) i++ ;
-             }
-             }
+              (*y) --;
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b, col_b-4,1, x , y) ; // check left 
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b, col_b+12,1,x ,y) ;  // right 
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b-4, col_b+4,1, x,y) ; //upper
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+4, col_b+4,1,x ,y) ; // lower
              
-            for (int j = -1; j < 2; j=j+2)
-             {
-               char x = check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+(j*4), col_b+4,1) ;
-             if (x != '0'){
-               print_after_change_beginners(array_of_grid_of_beginners,1);
-         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
-         printf(BAYLE"number of boxes remaining : %d\n"RESET,number_of_boxes_B);
-               grid_after_change_of_beginners(x,array_of_grid_of_beginners) ;
-               number_of_lines_in_B -- ;
-               data.player_one_score++;
-               number_of_boxes_B--;
-               i++ ;
-               if (i%2==1) i++ ;
-             }
-             }
-             }
+             }else{
            int left_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b,col_b-4,1);
            if(left_box==4){
              data.player_one_score++;
              i++ ;
-             number_of_boxes_B--;
-             for (int j = 0; j < 2; j++)
-             {
-               char x = check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b, col_b+(4-j*16),1) ;
-             if (x != '0'){
-               print_after_change_beginners(array_of_grid_of_beginners,1);
-         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
-         printf(BAYLE"number of boxes remaining : %d\n"RESET,number_of_boxes_B);    // check right and left boxes 
-               grid_after_change_of_beginners(x,array_of_grid_of_beginners) ;
-               number_of_lines_in_B -- ;
-               data.player_one_score++;
-               number_of_boxes_B--;
-               i++ ;
-               if (i%2==1) i++ ;
-             }
-             }
-             for (int j = -1; j < 2; j=j+2)
-             {
-               char x = check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+(j*4), col_b+4,1) ;
-             if (x != '0'){
-               print_after_change_beginners(array_of_grid_of_beginners,1);
-         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
-         printf(BAYLE"number of boxes remaining : %d\n"RESET,number_of_boxes_B);
-               grid_after_change_of_beginners(x,array_of_grid_of_beginners) ;
-               number_of_lines_in_B -- ;
-               data.player_one_score++;
-               number_of_boxes_B--;
-               i++ ;
-               if (i%2==1) i++ ;
-             }
-             }
+             (*y) --;
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b, col_b+4,1,x ,y) ; //check right
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b, col_b-12,1,x ,y) ; //left
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b-4, col_b-4,1,x ,y) ; // upper 
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+4, col_b-4,1,x ,y) ; // lower
    
-            }
-           if(right_box==4&&left_box==4){i--;}
+            }}
+           //if(right_box==4&&left_box==4){i--;}
          }
          else
          {
@@ -258,94 +201,34 @@ int main()
            if(lower_box ==4){
              data.player_one_score++;
              i++ ;
-             number_of_boxes_B--;
-             for (int j = 0; j < 2; j++)
-             {
-               char x = check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+(-2+j*8), col_b,1) ;
-             if (x != '0'){
-               print_after_change_beginners(array_of_grid_of_beginners,1);
-         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
-         printf(BAYLE"number of boxes remaining : %d\n"RESET,number_of_boxes_B);
-               grid_after_change_of_beginners(x,array_of_grid_of_beginners) ;
-               number_of_lines_in_B -- ;
-               data.player_one_score++;
-               number_of_boxes_B--;
-               i++ ;
-               if (i%2==1) i++ ;
-             }
-             }
-             
-             for (int j = -1; j < 2; j=j+1)
-             {
-               char x = check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+2,col_b+(j*8),1) ;
-             if (x != '0'){
-               print_after_change_beginners(array_of_grid_of_beginners,1);
-         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
-         printf(BAYLE"number of boxes remaining : %d\n"RESET,number_of_boxes_B);
-               grid_after_change_of_beginners(x,array_of_grid_of_beginners) ;
-               number_of_lines_in_B -- ;
-               data.player_one_score++;
-               number_of_boxes_B--;
-               i++ ;
-               if (i%2==1) i++ ;
-             }
-             }
-             
+             (*y) --;
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+6, col_b,1,x ,y) ; //  check lower
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b-2, col_b,1,x ,y) ; // upper
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+2, col_b+8,1,x,y) ; // right
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+2, col_b-8,1,x ,y) ; //left 
              
              }
+             else{
            int upper_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b-2,col_b,1);
            if(upper_box ==4){
              data.player_one_score++;
              i++ ;
-             number_of_boxes_B--;
-             for (int j = 0; j < 2; j++)
-             {
-               char x = check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+(2-j*8), col_b,1) ;
-             if (x != '0'){
-               print_after_change_beginners(array_of_grid_of_beginners,1);
-         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
-         printf(BAYLE"number of boxes remaining : %d\n"RESET,number_of_boxes_B);
-               grid_after_change_of_beginners(x,array_of_grid_of_beginners) ;
-               number_of_lines_in_B -- ;
-               data.player_one_score++;
-               number_of_boxes_B--;
-               i++ ;
-               if (i%2==1) i++ ;
+             (*y) --;
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+2, col_b,1,x,y) ;  //  lower
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b-6, col_b,1,x ,y) ; //  upper
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b-2, col_b+8,1,x ,y) ;  // right
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b-2, col_b-8,1,x ,y) ; // left
              }
-             }
-             for (int j = -1; j < 2; j=j+1)
-             {
-               char x = check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+2,col_b+(j*8),1) ;
-             if (x != '0'){
-               print_after_change_beginners(array_of_grid_of_beginners,1);
-         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
-         printf(BAYLE"number of boxes remaining : %d\n"RESET,number_of_boxes_B);
-               grid_after_change_of_beginners(x,array_of_grid_of_beginners) ;
-               number_of_lines_in_B -- ;
-               data.player_one_score++;
-               number_of_boxes_B--;
-               i++ ;
-               if (i%2==1) i++ ;
-             }
-             }
-             }
-           if(lower_box==4&&upper_box==4){i--;}
+         }
+          // if(lower_box==4&&upper_box==4){i--;}
          }      
          print_after_change_beginners(array_of_grid_of_beginners,1);
          printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
          printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
-         printf(BAYLE"number of boxes remaining : %d\n"RESET,number_of_boxes_B);
+         printf(BAYLE"number of lines remaining : %d\n"RESET,*x);
+         printf(BAYLE"number of boxes remaining : %d\n"RESET,*y);
        }
-       else if(i%2==1&&number_of_lines_in_B>=0)
+       else if(i%2==1&&(*x)>=0)
        {
          player_two_turn(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,data.Name_Player2);
          if(letter_be_changed>96)
@@ -354,85 +237,25 @@ int main()
            if(right_box==4){
              data.player_two_score++;
              i++ ;
-             number_of_boxes_B--;
-             for (int j = 0; j < 2; j++)
-             {
-               char x = check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b,col_b+(-4+j*16),2) ;
-             if (x != '0'){
-               print_after_change_beginners(array_of_grid_of_beginners,2);
-         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
-         printf(BAYLE"number of boxes remaining : %d\n"RESET,number_of_boxes_B);
-               grid_after_change_of_beginners(x,array_of_grid_of_beginners) ;
-               number_of_lines_in_B -- ;
-               data.player_two_score++;
-               number_of_boxes_B--;
-               i++ ;
-               if (i%2==0) i++ ;
+             (*y) --;
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b, col_b-4,2,x ,y) ;
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b, col_b+12,2,x ,y) ;
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b-4, col_b+4,2,x ,y) ;
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+4, col_b+4,2,x ,y) ;
              }
-             }
-             for (int j = -1; i < 2; j=j+2)
-             {
-              char x = check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+(j*4),col_b,2) ;
-             if (x != '0'){
-               print_after_change_beginners(array_of_grid_of_beginners,2);
-         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
-         printf(BAYLE"number of boxes remaining : %d\n"RESET,number_of_boxes_B);
-               grid_after_change_of_beginners(x,array_of_grid_of_beginners) ;
-               number_of_lines_in_B -- ;
-               data.player_two_score++;
-               number_of_boxes_B--;
-               i++ ;
-               if (i%2==0) i++ ;
-             }
-             }
-             }
+             
+           else{  
            int left_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b,col_b-4,2);
            if(left_box==4){
              data.player_two_score++;
              i++ ;
-             number_of_boxes_B--;
-             for (int j = 0; j < 2; j++)
-             {
-               char x = check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b,col_b+(4-j*16),2) ;
-             if (x != '0'){
-               print_after_change_beginners(array_of_grid_of_beginners,2);
-         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
-         printf(BAYLE"number of boxes remaining : %d\n"RESET,number_of_boxes_B);
-               grid_after_change_of_beginners(x,array_of_grid_of_beginners) ;
-               number_of_lines_in_B -- ;
-               data.player_two_score++;
-               number_of_boxes_B--;
-               i++ ;
-               if (i%2==0) i++ ;
-             }
-             }
-            for (int j = -1; j < 2; j=j+2)
-            {
-              char x = check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+(j*4),col_b,2) ;
-             if (x != '0'){
-               print_after_change_beginners(array_of_grid_of_beginners,2);
-         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
-         printf(BAYLE"number of boxes remaining : %d\n"RESET,number_of_boxes_B);
-               grid_after_change_of_beginners(x,array_of_grid_of_beginners) ;
-               number_of_lines_in_B -- ;
-               data.player_two_score++;
-               number_of_boxes_B--;
-               i++ ;
-               if (i%2==0) i++ ;
-             }
-             }
-            }
-            
-            
-           if(right_box==4&&left_box==4){i--;}
+             (*y)--;
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b, col_b+4,2,x,y) ; //check right
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b, col_b-12,2,x,y) ; //left
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b-4, col_b-4,2,x,y) ; // upper 
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+4, col_b-4,2,x,y) ; // lower
+            }}
+           //if(right_box==4&&left_box==4){i--;}
          }
          else
          {
@@ -440,91 +263,33 @@ int main()
            if(lower_box==4){
              data.player_two_score++;
              i++ ;
-             number_of_boxes_B--;
-             for (int j = 0; j < 2; j++)
-             {
-               char x = check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+(-2+j*8), col_b,2) ;
-             if (x != '0'){
-               print_after_change_beginners(array_of_grid_of_beginners,2);
-         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
-         printf(BAYLE"number of boxes remaining : %d\n"RESET,number_of_boxes_B);
-               grid_after_change_of_beginners(x,array_of_grid_of_beginners) ;
-               number_of_lines_in_B -- ;
-               data.player_two_score++;
-               number_of_boxes_B--;
-               i++ ;
-               if (i%2==0) i++ ;
+             (*y)--;
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+6, col_b,2,x,y) ; //  check lower
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b-2, col_b,2,x,y) ; // upper
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+2, col_b+8,2,x,y) ; // right
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+2, col_b-8,2,x,y) ; //left 
              }
-             }
-             
-             for (int j = -1; j < 2; j=j+1)
-             {
-               char x = check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+2,col_b+(j*8),2) ;
-             if (x != '0'){
-               print_after_change_beginners(array_of_grid_of_beginners,2);
-         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
-         printf(BAYLE"number of boxes remaining : %d\n"RESET,number_of_boxes_B);
-               grid_after_change_of_beginners(x,array_of_grid_of_beginners) ;
-               number_of_lines_in_B -- ;
-               data.player_two_score++;
-               number_of_boxes_B--;
-               i++ ;
-               if (i%2==0) i++ ;
-             }
-             }
-             }
+             else {
            int upper_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b-2,col_b,2);
            if(upper_box==4){
              data.player_two_score++;
              i++ ;
-             number_of_boxes_B--;
-             for (int j = 0; j < 2; j++)
-             {
-               char x = check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+(2-j*8), col_b,2) ;
-             if (x != '0'){
-               print_after_change_beginners(array_of_grid_of_beginners,2);
-         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
-         printf(BAYLE"number of boxes remaining : %d\n"RESET,number_of_boxes_B);
-               grid_after_change_of_beginners(x,array_of_grid_of_beginners) ;
-               number_of_lines_in_B -- ;
-               data.player_two_score++;
-               number_of_boxes_B--;
-               i++ ;
-               if (i%2==0) i++ ;
-             }
-             }
-             for (int j = -1; j < 2; j=j+1)
-             {
-               char x = check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+2,col_b+(j*8),2) ;
-             if (x != '0'){
-               print_after_change_beginners(array_of_grid_of_beginners,2);
-         printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
-         printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
-         printf(BAYLE"number of boxes remaining : %d\n"RESET,number_of_boxes_B);
-               grid_after_change_of_beginners(x,array_of_grid_of_beginners) ;
-               number_of_lines_in_B -- ;
-               data.player_two_score++;
-               number_of_boxes_B--;
-               i++ ;
-               if (i%2==0) i++ ;
-             }
-             }}
-           if(lower_box==4&&upper_box==4){i--;}
+             (*y)--;
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+2, col_b,2,x,y) ;  //  lower
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b-6, col_b,2,x,y) ; //  upper
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b-2, col_b+8,2,x,y) ;  // right
+             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b-2, col_b-8,2,x,y) ; // left}
+           }}
+           //if(lower_box==4&&upper_box==4){i--;}
          }      
          print_after_change_beginners(array_of_grid_of_beginners,2);
          printf(BRED"\n%s score : %d\n"RESET,data.Name_Player1,data.player_one_score);
          printf(BIBLE"%s score : %d\n"RESET,data.Name_Player2,data.player_two_score);
-         printf(BAYLE"number of lines remaining : %d\n"RESET,number_of_lines_in_B);
-         printf(BAYLE"number of boxes remaining : %d\n"RESET,number_of_boxes_B);
-      }
+         printf(BAYLE"number of lines remaining : %d\n"RESET,*x);
+         printf(BAYLE"number of boxes remaining : %d\n"RESET,*y);
+      
      }
+    }
     }
     else//one player vs computer in the beginners mode
     {
