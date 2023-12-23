@@ -9,14 +9,16 @@
 #include "Data.h"
 #include "print.h"
 #include "chain.h"
+#include "DFS 3la elde2.h"
 // arrays
 unsigned char array_of_grid_of_beginners[9][17];
 unsigned char array_of_grid_of_experts[21][41];
+double Total_time = 0.0;
 int number_of_lines_in_B = 12; // to fix number of loops
-int*x =&number_of_lines_in_B ;
+int*x = &number_of_lines_in_B ;
 int number_of_lines_in_E = 60; // to fix number of loops
 int number_of_boxes_B = 4;
-int *y =& number_of_boxes_B ;
+int *y = &number_of_boxes_B ;
 int number_of_boxes_E = 25;
 // code
 int main()
@@ -217,15 +219,15 @@ int main()
          {
            int right_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b,col_b+4,1);
            if (right_box==4){
-             data.player_one_score++;
-             i++ ; 
-              (*y) --;
-             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b, col_b-4,1, x , y) ; // check left 
-             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b, col_b+12,1,x ,y) ;  // right 
-             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b-4, col_b+4,1, x,y) ; //upper
-             check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+4, col_b+4,1,x ,y) ; // lower
-             
-             }else{
+            data.player_one_score++;
+            i++ ; 
+            (*y) --;
+            check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b, col_b-4,1, x , y) ; // check left 
+            check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b, col_b+12,1,x ,y) ;  // right 
+            check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b-4, col_b+4,1, x,y) ; //upper
+            check_adjacent (MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts, row_b+4, col_b+4,1,x ,y) ; // lower 
+            }
+            else{
            int left_box = check_boxes(MODE_B_E,array_of_grid_of_beginners,array_of_grid_of_experts,row_b,col_b-4,1);
            if(left_box==4){
              data.player_one_score++;
