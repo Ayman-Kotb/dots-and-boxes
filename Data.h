@@ -9,6 +9,10 @@ typedef struct
     int computer_score;
     char Name_Player1[50];
     char Name_Player2[50];
+    int number_of_remaining_lines_e;
+    int number_of_remaining_lines_b;
+    int number_of_remaining_boxes_e;
+    int number_of_remaining_boxes_b;
 } Data;
 Data data;
 

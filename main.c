@@ -14,14 +14,14 @@
 unsigned char array_of_grid_of_beginners[9][17];
 unsigned char array_of_grid_of_experts[21][41];
 double Total_time = 0.0; // Time;
-int number_of_lines_in_B = 12; // to fix number of loops
-int number_of_boxes_B = 4;
-int *lines_to_adjacent_b = &number_of_lines_in_B;// go to adjacent;
-int *number_of_boxes_to_adjacent_b = &number_of_boxes_B; // go to adjacent;
-int number_of_lines_in_E = 60; // to fix number of loops
-int number_of_boxes_E = 25;
-int *lines_to_adjacent_e = &number_of_lines_in_E;// go to adjacent;
-int *number_of_boxes_to_adjacent_e = &number_of_boxes_E; // go to adjacent;
+//int number_of_lines_in_B = 12; // to fix number of loops
+//int number_of_boxes_B = 4;
+//int *lines_to_adjacent_b = &number_of_lines_in_B;// go to adjacent;
+//int *number_of_boxes_to_adjacent_b = &number_of_boxes_B; // go to adjacent;
+//int number_of_lines_in_E = 60; // to fix number of loops
+//int number_of_boxes_E = 25;
+//int *lines_to_adjacent_e = &number_of_lines_in_E;// go to adjacent;
+//int *number_of_boxes_to_adjacent_e = &number_of_boxes_E; // go to adjacent;
 
 // code
 int main()
@@ -30,6 +30,15 @@ int main()
   data.player_one_score = 0;
   data.player_two_score = 0;
   data.computer_score = 0;
+  data.number_of_remaining_boxes_b = 4;
+  data.number_of_remaining_boxes_e = 25;
+  data.number_of_remaining_lines_e = 60;
+  data.number_of_remaining_lines_b = 12;
+  int *lines_to_adjacent_b = &data.number_of_remaining_lines_b;// go to adjacent;
+  int *lines_to_adjacent_e = &data.number_of_remaining_lines_e;// go to adjacent;
+  int *number_of_boxes_to_adjacent_e = &data.number_of_remaining_boxes_e; // go to adjacent;
+  int *number_of_boxes_to_adjacent_b = &data.number_of_remaining_boxes_b; // go to adjacent;
+
 
   time_t now = time(NULL); // time;
   char *string_now = ctime(&now);
@@ -85,7 +94,7 @@ int main()
   {
     creat_initial_grid_for_experts(array_of_grid_of_experts);
     print_initial_E(array_of_grid_of_experts); // still
-    print_remaining_and_scores_E(data.Name_Player1, data.Name_Player2, data.player_one_score, data.player_two_score, &number_of_lines_in_E, &number_of_boxes_E);
+    print_remaining_and_scores_E(data.Name_Player1, data.Name_Player2, data.player_one_score, data.player_two_score, &data.number_of_remaining_lines_e, &data.number_of_remaining_boxes_e);
     printf(BARN "Total time : 0" RESET "\n");
     for (int i = 0; i < 84; i++)
     {
@@ -103,14 +112,14 @@ int main()
           {
             data.player_one_score++;
             i++;
-            (number_of_boxes_E)--;
+            (data.number_of_remaining_boxes_e)--;
           }
           int left_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e, col_e - 4, 1);
           if (left_box == 4)
           {
             data.player_one_score++;
             i++;
-            (number_of_boxes_E)--;
+            (data.number_of_remaining_boxes_e)--;
           }
           if (right_box == 4 && left_box == 4)
           {
@@ -124,14 +133,14 @@ int main()
           {
             data.player_one_score++;
             i++;
-            (number_of_boxes_E)--;
+            (data.number_of_remaining_boxes_e)--;
           }
           int upper_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e - 2, col_e, 1);
           if (upper_box == 4)
           {
             data.player_one_score++;
             i++;
-            (number_of_boxes_E)--;
+            (data.number_of_remaining_boxes_e)--;
           }
           if (lower_box == 4 && upper_box == 4)
           {
@@ -139,7 +148,7 @@ int main()
           }
         }
         print_after_change_experts(array_of_grid_of_experts, 1);
-        print_remaining_and_scores_E(data.Name_Player1, data.Name_Player2, data.player_one_score, data.player_two_score, &number_of_lines_in_E, &number_of_boxes_E);
+        print_remaining_and_scores_E(data.Name_Player1, data.Name_Player2, data.player_one_score, data.player_two_score, &data.number_of_remaining_lines_e, &data.number_of_remaining_boxes_e);
 
         end = clock(); // end time
         Total_time = Total_time + ((double)(end - start) / CLOCKS_PER_SEC);
@@ -157,14 +166,14 @@ int main()
           {
             data.player_two_score++;
             i++;
-            (number_of_boxes_E)--;
+            (data.number_of_remaining_boxes_e)--;
           }
           int left_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e, col_e - 4, 2);
           if (left_box == 4)
           {
             data.player_two_score++;
             i++;
-            (number_of_boxes_E)--;
+            (data.number_of_remaining_boxes_e)--;
           }
           if (right_box == 4 && left_box == 4)
           {
@@ -178,14 +187,14 @@ int main()
           {
             data.player_two_score++;
             i++;
-            (number_of_boxes_E)--;
+            (data.number_of_remaining_boxes_e)--;
           }
           int upper_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e - 2, col_e, 2);
           if (upper_box == 4)
           {
             data.player_two_score++;
             i++;
-            number_of_boxes_E--;
+            (data.number_of_remaining_boxes_e)--;
           }
           if (lower_box == 4 && upper_box == 4)
           {
@@ -193,7 +202,7 @@ int main()
           }
         }
         print_after_change_experts(array_of_grid_of_experts, 2);
-        print_remaining_and_scores_E(data.Name_Player1, data.Name_Player2, data.player_one_score, data.player_two_score, &number_of_lines_in_E, &number_of_boxes_E);
+        print_remaining_and_scores_E(data.Name_Player1, data.Name_Player2, data.player_one_score, data.player_two_score, &data.number_of_remaining_lines_e, &data.number_of_remaining_boxes_e);
 
         end = clock(); // end time
         Total_time = Total_time + ((double)(end - start) / CLOCKS_PER_SEC);
