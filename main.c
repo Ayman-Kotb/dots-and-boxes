@@ -99,8 +99,8 @@ int main()
     for (int i = 0; i < 84; i++)
     {
       // error in number of loops
-      (number_of_lines_in_E)--; // error in number of loops
-      if (i % 2 == 0 && number_of_lines_in_E >= 0)
+      (data.number_of_remaining_boxes_e)--; // error in number of loops
+      if (i % 2 == 0 && data.number_of_remaining_boxes_e >= 0)
       {
         start = clock(); // start time
 
@@ -154,7 +154,7 @@ int main()
         Total_time = Total_time + ((double)(end - start) / CLOCKS_PER_SEC);
         printf(BARN "Total Time : %f\n" RESET, Total_time);
       }
-      else if (i % 2 == 1 && number_of_lines_in_E >= 0)
+      else if (i % 2 == 1 && data.number_of_remaining_boxes_e >= 0)
       {
         start = clock(); // start clock
 
@@ -311,7 +311,6 @@ int main()
             check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b - 4, col_b + 4, 2, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);
             check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b + 4, col_b + 4, 2, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);
           }
-
           else
           {
             int left_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b, col_b - 4, 2);
@@ -326,7 +325,6 @@ int main()
               check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b + 4, col_b - 4, 2, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // lower
             }
           }
-          // if(right_box==4&&left_box==4){i--;}
         }
         else
         {
