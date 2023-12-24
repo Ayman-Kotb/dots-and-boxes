@@ -99,8 +99,8 @@ int main()
     for (int i = 0; i < 84; i++)
     {
       // error in number of loops
-      (data.number_of_remaining_boxes_e)--; // error in number of loops
-      if (i % 2 == 0 && data.number_of_remaining_boxes_e >= 0)
+      (data.number_of_remaining_lines_e)--; // error in number of loops
+      if (i % 2 == 0 && data.number_of_remaining_lines_e >= 0)
       {
         start = clock(); // start time
 
