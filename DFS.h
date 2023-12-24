@@ -4,7 +4,7 @@
 void check_adjacent(int MODE_B_E, unsigned char array_of_grid_of_beginners[9][17], unsigned char array_of_grid_of_experts[21][41], int row_mid, int column_mid, int turn_player, int *x, int *y)
 {
     int directional_array_adj[2][4] = {0, 0, -2, 2,
-                                   -4, 4, 0, 0};
+                                      -4, 4, 0, 0};
     int row_d, column_d;
     char letter_will_be_removed = '0';
     int number_of_lines_adj = 0;
