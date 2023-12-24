@@ -5,7 +5,9 @@
         "grid_change.h": "c",
         "stdio.h": "c",
         "checks.h": "c",
-        "chain.h": "c"
+        "chain.h": "c",
+        "gameloop.h": "c",
+        "stdlib.h": "c"
     },
     "cmake.sourceDirectory": "${workspaceFolder}/Users/Mega Store/.vscode/extensions/twxs.cmake-0.0.17/node_modules/peg-cmake/test",
     "cSpell.words": [

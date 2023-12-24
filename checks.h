@@ -109,7 +109,6 @@ int check_boxes(int MODE_B_E, unsigned char array_of_grid_of_beginners[9][17], u
     {
       array_of_grid_of_beginners[row_mid][column_mid] = '2';
     }
-
     return number_of_lines; // return number of lines      can be important
   }
   else
@@ -118,9 +117,9 @@ int check_boxes(int MODE_B_E, unsigned char array_of_grid_of_beginners[9][17], u
     {
       row = row_mid + directional_array[0][i];
       column = column_mid + directional_array[1][i];
-      if (array_of_grid_of_experts[row][column] == '-'|| array_of_grid_of_experts[row][column] == '|')// error in | in grid;
+      if (array_of_grid_of_experts[row][column] == '-' || array_of_grid_of_experts[row][column] == '|') // error in | in grid;
       {
-          number_of_lines++;
+        number_of_lines++;
       }
     }
     if (number_of_lines == 4 && turn_player == 1)

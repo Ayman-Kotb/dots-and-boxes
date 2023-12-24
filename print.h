@@ -151,17 +151,17 @@ void print_after_change_experts(unsigned char array_of_grid_of_experts[21][41], 
   }
 }
 
-void print_remaining_and_scores_E(char name_1[50],char name_2[50],int player_1_scores,int player_2_scores,int remaining_lines_E,int remaining_boxes_E)
+void print_remaining_and_scores_E(char name_1[50], char name_2[50], int player_1_scores, int player_2_scores, int *remaining_lines_E, int *remaining_boxes_E)
 {
-    printf(BRED "\n%s score : %d\n" RESET, name_1, player_1_scores);
-    printf(BIBLE "%s score : %d\n" RESET, name_2 , player_2_scores);
-    printf(BAYLE "number of remaining lines : %d\n" RESET,remaining_lines_E);
-    printf(BAYLE "number of remaining boxes : %d\n" RESET,remaining_boxes_E);
+  printf(BRED "\n%s score : %d\n" RESET, name_1, player_1_scores);
+  printf(BIBLE "%s score : %d\n" RESET, name_2, player_2_scores);
+  printf(BAYLE "number of remaining lines : %d\n" RESET, *remaining_lines_E);
+  printf(BAYLE "number of remaining boxes : %d\n" RESET, *remaining_boxes_E);
 }
-void print_remaining_and_scores_B(char name_1[50],char name_2[50],int player_1_scores,int player_2_scores,int remaining_lines_B,int remaining_boxes_B)
+void print_remaining_and_scores_B(char name_1[50], char name_2[50], int player_1_scores, int player_2_scores, int *remaining_lines_B, int *remaining_boxes_B)
 {
-    printf(BRED "\n%s score : %d\n" RESET, name_1, player_1_scores);
-    printf(BIBLE "%s score : %d\n" RESET, name_2 , player_2_scores);
-    printf(BAYLE "number of remaining lines : %d\n" RESET,remaining_lines_B);
-    printf(BAYLE "number of remaining boxes : %d\n" RESET,remaining_boxes_B);
+  printf(BRED "\n%s score : %d\n" RESET, name_1, player_1_scores);
+  printf(BIBLE "%s score : %d\n" RESET, name_2, player_2_scores);
+  printf(BAYLE "number of remaining lines : %d\n" RESET, *remaining_lines_B);
+  printf(BAYLE "number of remaining boxes : %d\n" RESET, *remaining_boxes_B);
 }
