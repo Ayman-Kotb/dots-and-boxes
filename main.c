@@ -14,15 +14,6 @@
 unsigned char array_of_grid_of_beginners[9][17];
 unsigned char array_of_grid_of_experts[21][41];
 double Total_time = 0.0; // Time;
-//int number_of_lines_in_B = 12; // to fix number of loops
-//int number_of_boxes_B = 4;
-//int *lines_to_adjacent_b = &number_of_lines_in_B;// go to adjacent;
-//int *number_of_boxes_to_adjacent_b = &number_of_boxes_B; // go to adjacent;
-//int number_of_lines_in_E = 60; // to fix number of loops
-//int number_of_boxes_E = 25;
-//int *lines_to_adjacent_e = &number_of_lines_in_E;// go to adjacent;
-//int *number_of_boxes_to_adjacent_e = &number_of_boxes_E; // go to adjacent;
-
 // code
 int main()
 {
