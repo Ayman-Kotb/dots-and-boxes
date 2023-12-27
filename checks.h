@@ -23,11 +23,11 @@ int Check_Letter_In_Array_Of_Experts(char letter_changed, unsigned char array_of
           Found = 0;
           break;
         }
-        else if(array_of_grid_of_experts[row_c][col_c] == '|')
+        else if (array_of_grid_of_experts[row_c][col_c] == '|')
         {
           row_e = 18;
           col_e = 24;
-          Found =1;
+          Found = 1;
           break;
         }
         else if (letter_changed == '1' || letter_changed == '2' || letter_changed == '0' || letter_changed == '-')
@@ -116,7 +116,7 @@ int check_boxes(int MODE_B_E, unsigned char array_of_grid_of_beginners[9][17], u
     {
       array_of_grid_of_beginners[row_mid][column_mid] = '2';
     }
-    else if (number_of_lines == 4 && turn_player == 0 )
+    else if (number_of_lines == 4 && turn_player == 0)
     {
       array_of_grid_of_beginners[row_mid][column_mid] = '0';
     }
@@ -128,14 +128,14 @@ int check_boxes(int MODE_B_E, unsigned char array_of_grid_of_beginners[9][17], u
     {
       row = row_mid + directional_array[0][i];
       column = column_mid + directional_array[1][i];
-      if ((array_of_grid_of_experts[row][column] == '-' || array_of_grid_of_experts[row][column] == '|') && (row==18 && column==24)) // error in | in grid;
+      if ((array_of_grid_of_experts[row][column] == '-' || array_of_grid_of_experts[row][column] == '|') && (row == 18 && column == 24)) // error in | in grid;
       {
-        if(array_of_grid_of_experts[17][24] == '|')
+        if (array_of_grid_of_experts[17][24] == '|')
         {
           number_of_lines++;
         }
       }
-      else if(array_of_grid_of_experts[row][column] == '-' || array_of_grid_of_experts[row][column] == '|')
+      else if (array_of_grid_of_experts[row][column] == '-' || array_of_grid_of_experts[row][column] == '|')
       {
         number_of_lines++;
       }
@@ -148,7 +148,8 @@ int check_boxes(int MODE_B_E, unsigned char array_of_grid_of_beginners[9][17], u
     {
       array_of_grid_of_experts[row_mid][column_mid] = '2';
     }
-    else if (number_of_lines == 4 && turn_player == 0 ){
+    else if (number_of_lines == 4 && turn_player == 0)
+    {
       array_of_grid_of_experts[row_mid][column_mid] = '0';
     }
     return number_of_lines; // return number of lines           can be important

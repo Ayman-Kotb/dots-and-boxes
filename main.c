@@ -17,7 +17,7 @@ double Total_time = 0.0; // Time;
 // code
 int main()
 {
-  srand(time(NULL)); 
+  srand(time(NULL));
   clock_t start, end; // Time start , end;
   data.player_one_score = 0;
   data.player_two_score = 0;
@@ -154,16 +154,15 @@ int main()
             }
           }
         }
-          print_after_change_experts(array_of_grid_of_experts, 1);
-          print_remaining_and_scores_E(data.Name_Player1, data.Name_Player2, data.player_one_score, data.player_two_score, &data.number_of_remaining_lines_e, &data.number_of_remaining_boxes_e);
+        print_after_change_experts(array_of_grid_of_experts, 1);
+        print_remaining_and_scores_E(data.Name_Player1, data.Name_Player2, data.player_one_score, data.player_two_score, &data.number_of_remaining_lines_e, &data.number_of_remaining_boxes_e);
 
-          end = clock(); // end time
-          Total_time = Total_time + ((double)(end - start) / CLOCKS_PER_SEC);
-          printf(BARN "Total Time : %f\n" RESET, Total_time);
-        }
-      
-  
-      else if (i % 2 == 1 && data.number_of_remaining_boxes_e >= 0)
+        end = clock(); // end time
+        Total_time = Total_time + ((double)(end - start) / CLOCKS_PER_SEC);
+        printf(BARN "Total Time : %f\n" RESET, Total_time);
+      }
+
+      else if (i % 2 == 1 && (*lines_to_adjacent_e) >= 0)
       {
         start = clock(); // start clock
 
@@ -224,14 +223,25 @@ int main()
             }
           }
         }
-          print_after_change_experts(array_of_grid_of_experts, 2);
-          print_remaining_and_scores_E(data.Name_Player1, data.Name_Player2, data.player_one_score, data.player_two_score, &data.number_of_remaining_lines_e, &data.number_of_remaining_boxes_e);
+        print_after_change_experts(array_of_grid_of_experts, 2);
+        print_remaining_and_scores_E(data.Name_Player1, data.Name_Player2, data.player_one_score, data.player_two_score, &data.number_of_remaining_lines_e, &data.number_of_remaining_boxes_e);
 
-          end = clock(); // end time
-          Total_time = Total_time + ((double)(end - start) / CLOCKS_PER_SEC);
-          printf(BARN "Total Time : %f\n" RESET, Total_time);
-        }
-      
+        end = clock(); // end time
+        Total_time = Total_time + ((double)(end - start) / CLOCKS_PER_SEC);
+        printf(BARN "Total Time : %f\n" RESET, Total_time);
+      }
+    }
+    if(data.player_two_score>data.player_one_score)
+    {
+      printf("\n\t"MAGE" %s Won the game "RESET"\n",data.Name_Player2);
+    }
+    else if(data.computer_score<data.player_one_score)
+    {
+      printf("\n\t"MAGE" %s Won the game "RESET"\n", data.Name_Player1);
+    }
+    else
+    {
+      printf("\n\t"MAGE" Draw "RESET"\n");
     }
   }
   else if (MODE_B_E == 1 && against == 2) // one player vs computer in the experts mode
@@ -242,7 +252,8 @@ int main()
     printf(BARN "Total time : 0" RESET "\n");
     for (int i = 0; i < 84; i++)
     {
-      if (((*lines_to_adjacent_e) < 0) ||((*number_of_boxes_to_adjacent_e)<0)) break;
+      if (((*lines_to_adjacent_e) < 0) || ((*number_of_boxes_to_adjacent_e) < 0))
+        break;
       // error in number of loops
       (*lines_to_adjacent_e)--; // error in number of loops
       if (i % 2 == 0 && (*lines_to_adjacent_e) >= 0)
@@ -306,16 +317,14 @@ int main()
             }
           }
         }
-          print_after_change_experts(array_of_grid_of_experts, 1);
-          print_remaining_and_scores_computer(data.Name_Player1, data.player_one_score, data.computer_score, &data.number_of_remaining_lines_e, &data.number_of_remaining_boxes_e);
+        print_after_change_experts(array_of_grid_of_experts, 1);
+        print_remaining_and_scores_computer(data.Name_Player1, data.player_one_score, data.computer_score, &data.number_of_remaining_lines_e, &data.number_of_remaining_boxes_e);
 
-          end = clock(); // end time
-          Total_time = Total_time + ((double)(end - start) / CLOCKS_PER_SEC);
-          printf(BARN "Total Time : %f\n" RESET, Total_time);
-        }
-      
-  
-      else if (i % 2 == 1 && data.number_of_remaining_boxes_e >= 0)
+        end = clock(); // end time
+        Total_time = Total_time + ((double)(end - start) / CLOCKS_PER_SEC);
+        printf(BARN "Total Time : %f\n" RESET, Total_time);
+      }
+      else if (i % 2 == 1 && (*lines_to_adjacent_e) >= 0)
       {
         start = clock(); // start clock
 
@@ -376,14 +385,25 @@ int main()
             }
           }
         }
-          print_after_change_experts(array_of_grid_of_experts, 0);
-          print_remaining_and_scores_computer(data.Name_Player1,data.player_one_score, data.computer_score, &data.number_of_remaining_lines_e, &data.number_of_remaining_boxes_e);
+        print_after_change_experts(array_of_grid_of_experts, 0);
+        print_remaining_and_scores_computer(data.Name_Player1, data.player_one_score, data.computer_score, &data.number_of_remaining_lines_e, &data.number_of_remaining_boxes_e);
 
-          end = clock(); // end time
-          Total_time = Total_time + ((double)(end - start) / CLOCKS_PER_SEC);
-          printf(BARN "Total Time : %f\n" RESET, Total_time);
-        }
-      
+        end = clock(); // end time
+        Total_time = Total_time + ((double)(end - start) / CLOCKS_PER_SEC);
+        printf(BARN "Total Time : %f\n" RESET, Total_time);
+      }
+    }
+    if(data.computer_score>data.player_one_score)
+    {
+      printf("\n\t"MAGE" Computer Won the game "RESET"\n");
+    }
+    else if(data.computer_score<data.player_one_score)
+    {
+      printf("\n\t"MAGE" %s Won the game "RESET"\n", data.Name_Player1);
+    }
+    else
+    {
+      printf("\n\t"MAGE" Draw "RESET"\n");
     }
   }
   else if (MODE_B_E == 2 && against == 1) // two player in the beginner mode
@@ -533,6 +553,18 @@ int main()
         printf(BARN "Total Time : %f\n" RESET, Total_time);
       }
     }
+    if(data.player_two_score>data.player_one_score)
+    {
+      printf("\n\t"MAGE" %s Won the game "RESET"\n",data.Name_Player2);
+    }
+    else if(data.player_two_score<data.player_one_score)
+    {
+      printf("\n\t"MAGE" %s Won the game "RESET"\n", data.Name_Player1);
+    }
+    else
+    {
+      printf("\n\t"MAGE" Draw "RESET"\n");
+    }
   }
   else // one player vs computer in the beginners mode
   {
@@ -607,7 +639,7 @@ int main()
         }
         print_after_change_beginners(array_of_grid_of_beginners, 1);
         print_remaining_and_scores_computer(data.Name_Player1, data.player_one_score, data.computer_score, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // still
-        end = clock(); // end time
+        end = clock();                                                                                                                                          // end time
         Total_time = Total_time + ((double)(end - start) / CLOCKS_PER_SEC);
         printf(BARN "Total Time : %f\n" RESET, Total_time);
       }
@@ -673,12 +705,24 @@ int main()
         }
         print_after_change_beginners(array_of_grid_of_beginners, 0);
         print_remaining_and_scores_computer(data.Name_Player1, data.player_one_score, data.computer_score, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // still
-        end = clock(); // end time
+        end = clock();                                                                                                                                          // end time
         Total_time = Total_time + ((double)(end - start) / CLOCKS_PER_SEC);
         printf(BARN "Total Time : %f\n" RESET, Total_time);
       }
     }
-}
+    if(data.computer_score>data.player_one_score)
+    {
+      printf("\n\t"MAGE" Computer won the game "RESET"\n");
+    }
+    else if(data.computer_score<data.player_one_score)
+    {
+      printf("\n\t"MAGE" %s Won the game "RESET"\n", data.Name_Player1);
+    }
+    else
+    {
+      printf("\n\t"MAGE" Draw "RESET"\n");
+    }
+  }
   // be changed
   return 0;
 }
