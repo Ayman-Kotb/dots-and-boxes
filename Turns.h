@@ -4,8 +4,8 @@
 //
 char letter_be_changed = '0';
 int taken_characters = 0;
-int *p_of_taken_char = &taken_characters;
-unsigned char array_of_taken_characters[61] = "0";
+int *p_of_taken_char = &taken_characters;// pointer on taken character;
+unsigned char array_of_taken_characters[61] = "0";//taken characters; // for undo and redo;
 void player_one_turn(int MODE_B_E, unsigned char array_of_grid_of_beginners[9][17], unsigned char array_of_grid_of_experts[21][41], char Name_Player1[10])
 {
   int checked_letter = 2;
