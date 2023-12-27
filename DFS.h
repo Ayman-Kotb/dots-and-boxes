@@ -36,6 +36,9 @@ void check_adjacent(int MODE_B_E, unsigned char array_of_grid_of_beginners[9][17
             {
                 data.player_two_score++;
             }
+            else {
+                data.computer_score++ ;
+            }
             (*x)--;
             (*y)--;
             array_of_grid_of_beginners[row_mid][column_mid] = (turn_player + '0');
@@ -55,6 +58,9 @@ void check_adjacent(int MODE_B_E, unsigned char array_of_grid_of_beginners[9][17
             else if (turn_player == 2)
             {
                 data.player_two_score++;
+            }
+            else {
+                data.computer_score++ ;
             }
         }
         else
@@ -88,6 +94,9 @@ void check_adjacent(int MODE_B_E, unsigned char array_of_grid_of_beginners[9][17
             {
                 data.player_two_score++;
             }
+            else {
+                data.computer_score++ ;
+            }
             (*x) --;
             (*y) --;
             array_of_grid_of_experts[row_mid][column_mid] = (turn_player + '0');
@@ -107,6 +116,9 @@ void check_adjacent(int MODE_B_E, unsigned char array_of_grid_of_beginners[9][17
             else if (turn_player == 2)
             {
                 data.player_two_score++;
+            }
+            else {
+                data.computer_score++ ;
             }
         }
         else

@@ -165,3 +165,9 @@ void print_remaining_and_scores_B(char name_1[50], char name_2[50], int player_1
   printf(BAYLE "number of remaining lines : %d\n" RESET, *remaining_lines_B);
   printf(BAYLE "number of remaining boxes : %d\n" RESET, *remaining_boxes_B);
 }
+void print_remaining_and_scores_computer(char name_1[50] , int player_1_scores, int computer_score, int *remaining_lines , int *remaining_boxes ){
+  printf(BRED "\n%s score : %d\n" RESET, name_1, player_1_scores);
+  printf(BIBLE "Computer's score : %d\n" RESET,  computer_score);
+  printf(BAYLE "number of remaining lines : %d\n" RESET, *remaining_lines);
+  printf(BAYLE "number of remaining boxes : %d\n" RESET, *remaining_boxes);
+}

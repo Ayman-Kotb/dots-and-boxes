@@ -17,6 +17,7 @@ double Total_time = 0.0; // Time;
 // code
 int main()
 {
+  srand(time(NULL)); 
   clock_t start, end; // Time start , end;
   data.player_one_score = 0;
   data.player_two_score = 0;
@@ -236,8 +237,154 @@ int main()
   else if (MODE_B_E == 1 && against == 2) // one player vs computer in the experts mode
   {
     creat_initial_grid_for_experts(array_of_grid_of_experts);
-    print_initial_E(array_of_grid_of_experts);
-    printf("\n=====================================================\n"); // still
+    print_initial_E(array_of_grid_of_experts); // still
+    print_remaining_and_scores_computer(data.Name_Player1, data.player_one_score, data.computer_score, &data.number_of_remaining_lines_e, &data.number_of_remaining_boxes_e);
+    printf(BARN "Total time : 0" RESET "\n");
+    for (int i = 0; i < 84; i++)
+    {
+      if (((*lines_to_adjacent_e) < 0) ||((*number_of_boxes_to_adjacent_e)<0)) break;
+      // error in number of loops
+      (*lines_to_adjacent_e)--; // error in number of loops
+      if (i % 2 == 0 && (*lines_to_adjacent_e) >= 0)
+      {
+        start = clock(); // start time
+
+        player_one_turn(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, data.Name_Player1);
+        if (letter_be_changed > 96)
+        {
+          int right_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e, col_e + 4, 1);
+          if (right_box == 4)
+          {
+            data.player_one_score++;
+            i++;
+            (*number_of_boxes_to_adjacent_e)--;
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e, col_e - 4, 1, lines_to_adjacent_e, number_of_boxes_to_adjacent_e);     // check left
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e, col_e + 12, 1, lines_to_adjacent_e, number_of_boxes_to_adjacent_e);    // right
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e - 4, col_e + 4, 1, lines_to_adjacent_e, number_of_boxes_to_adjacent_e); // upper
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e + 4, col_e + 4, 1, lines_to_adjacent_e, number_of_boxes_to_adjacent_e); // lower
+          }
+          else
+          {
+            int left_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e, col_e - 4, 1);
+            if (left_box == 4)
+            {
+              data.player_one_score++;
+              i++;
+              (*number_of_boxes_to_adjacent_e)--;
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e, col_e + 4, 1, lines_to_adjacent_e, number_of_boxes_to_adjacent_e);     // check right
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e, col_e - 12, 1, lines_to_adjacent_e, number_of_boxes_to_adjacent_e);    // left
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e - 4, col_e - 4, 1, lines_to_adjacent_e, number_of_boxes_to_adjacent_e); // upper
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e + 4, col_e - 4, 1, lines_to_adjacent_e, number_of_boxes_to_adjacent_e); // lower
+            }
+          }
+        }
+        else
+        {
+          int lower_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e + 2, col_e, 1);
+          if (lower_box == 4)
+          {
+            data.player_one_score++;
+            i++;
+            (*number_of_boxes_to_adjacent_e)--;
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e + 6, col_e, 1, lines_to_adjacent_e, number_of_boxes_to_adjacent_e);     //  check lower
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e - 2, col_e, 1, lines_to_adjacent_e, number_of_boxes_to_adjacent_e);     // upper
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e + 2, col_e + 8, 1, lines_to_adjacent_e, number_of_boxes_to_adjacent_e); // right
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e + 2, col_e - 8, 1, lines_to_adjacent_e, number_of_boxes_to_adjacent_e); // left
+          }
+          else
+          {
+            int upper_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e - 2, col_e, 1);
+            if (upper_box == 4)
+            {
+              data.player_one_score++;
+              i++;
+              (*number_of_boxes_to_adjacent_e)--;
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e + 2, col_e, 1, lines_to_adjacent_e, number_of_boxes_to_adjacent_e);     //  lower
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e - 6, col_e, 1, lines_to_adjacent_e, number_of_boxes_to_adjacent_e);     //  upper
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e - 2, col_e + 8, 1, lines_to_adjacent_e, number_of_boxes_to_adjacent_e); // right
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e - 2, col_e - 8, 1, lines_to_adjacent_e, number_of_boxes_to_adjacent_e); // left
+            }
+          }
+        }
+          print_after_change_experts(array_of_grid_of_experts, 1);
+          print_remaining_and_scores_computer(data.Name_Player1, data.player_one_score, data.computer_score, &data.number_of_remaining_lines_e, &data.number_of_remaining_boxes_e);
+
+          end = clock(); // end time
+          Total_time = Total_time + ((double)(end - start) / CLOCKS_PER_SEC);
+          printf(BARN "Total Time : %f\n" RESET, Total_time);
+        }
+      
+  
+      else if (i % 2 == 1 && data.number_of_remaining_boxes_e >= 0)
+      {
+        start = clock(); // start clock
+
+        computer_turn(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts);
+        if (letter_be_changed > 96)
+        {
+          int right_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e, col_e + 4, 0);
+          if (right_box == 4)
+          {
+            data.computer_score++;
+            i++;
+            (*number_of_boxes_to_adjacent_e)--;
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e, col_e - 4, 0, lines_to_adjacent_e, number_of_boxes_to_adjacent_e);
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e, col_e + 12, 0, lines_to_adjacent_e, number_of_boxes_to_adjacent_e);
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e - 4, col_e + 4, 0, lines_to_adjacent_e, number_of_boxes_to_adjacent_e);
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e + 4, col_e + 4, 0, lines_to_adjacent_e, number_of_boxes_to_adjacent_e);
+          }
+          else
+          {
+            int left_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e, col_e - 4, 0);
+            if (left_box == 4)
+            {
+              data.computer_score++;
+              i++;
+              (*number_of_boxes_to_adjacent_e)--;
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e, col_e + 4, 0, lines_to_adjacent_e, number_of_boxes_to_adjacent_e);     // check right
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e, col_e - 12, 0, lines_to_adjacent_e, number_of_boxes_to_adjacent_e);    // left
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e - 4, col_e - 4, 0, lines_to_adjacent_e, number_of_boxes_to_adjacent_e); // upper
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e + 4, col_e - 4, 0, lines_to_adjacent_e, number_of_boxes_to_adjacent_e); // lower
+            }
+          }
+        }
+        else
+        {
+          int lower_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e + 2, col_e, 0);
+          if (lower_box == 4)
+          {
+            data.computer_score++;
+            i++;
+            (*number_of_boxes_to_adjacent_e)--;
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e + 6, col_e, 0, lines_to_adjacent_e, number_of_boxes_to_adjacent_e);     //  check lower
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e - 2, col_e, 0, lines_to_adjacent_e, number_of_boxes_to_adjacent_e);     // upper
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e + 2, col_e + 8, 0, lines_to_adjacent_e, number_of_boxes_to_adjacent_e); // right
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e + 2, col_e - 8, 0, lines_to_adjacent_e, number_of_boxes_to_adjacent_e); // left
+          }
+          else
+          {
+            int upper_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e - 2, col_e, 0);
+            if (upper_box == 4)
+            {
+              data.computer_score++;
+              i++;
+              (*number_of_boxes_to_adjacent_e)--;
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e + 2, col_e, 0, lines_to_adjacent_e, number_of_boxes_to_adjacent_e);     //  lower
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e - 6, col_e, 0, lines_to_adjacent_e, number_of_boxes_to_adjacent_e);     //  upper
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e - 2, col_e + 8, 0, lines_to_adjacent_e, number_of_boxes_to_adjacent_e); // right
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e - 2, col_e - 8, 0, lines_to_adjacent_e, number_of_boxes_to_adjacent_e); // left}
+            }
+          }
+        }
+          print_after_change_experts(array_of_grid_of_experts, 0);
+          print_remaining_and_scores_computer(data.Name_Player1,data.player_one_score, data.computer_score, &data.number_of_remaining_lines_e, &data.number_of_remaining_boxes_e);
+
+          end = clock(); // end time
+          Total_time = Total_time + ((double)(end - start) / CLOCKS_PER_SEC);
+          printf(BARN "Total Time : %f\n" RESET, Total_time);
+        }
+      
+    }
   }
   else if (MODE_B_E == 2 && against == 1) // two player in the beginner mode
   {
@@ -391,8 +538,147 @@ int main()
   {
     creat_initial_grid_for_beginners(array_of_grid_of_beginners);
     print_initial_B(array_of_grid_of_beginners);
-    printf("\n=====================================================\n"); // still
-  }
+    print_remaining_and_scores_computer(data.Name_Player1, data.player_one_score, data.computer_score, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // still
+    printf(BARN "Total time : 0" RESET "\n");
+    for (int i = 0; i < 15; i++) // error in number of loops
+    {
+      if (*lines_to_adjacent_b < 0)
+        break;
+      (*lines_to_adjacent_b)--; // fix number of loops
+      if (i % 2 == 0 && (*lines_to_adjacent_b) >= 0)
+      {
+        start = clock();
+        player_one_turn(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, data.Name_Player1);
+        if (letter_be_changed > 96)
+        {
+          int right_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b, col_b + 4, 1);
+          if (right_box == 4)
+          {
+            data.player_one_score++;
+            i++;
+            (*number_of_boxes_to_adjacent_b)--;
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b, col_b - 4, 1, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);     // check left
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b, col_b + 12, 1, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);    // right
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b - 4, col_b + 4, 1, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // upper
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b + 4, col_b + 4, 1, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // lower
+          }
+          else
+          {
+            int left_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b, col_b - 4, 1);
+            if (left_box == 4)
+            {
+              data.player_one_score++;
+              i++;
+              (*number_of_boxes_to_adjacent_b)--;
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b, col_b + 4, 1, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);     // check right
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b, col_b - 12, 1, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);    // left
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b - 4, col_b - 4, 1, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // upper
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b + 4, col_b - 4, 1, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // lower
+            }
+          }
+        }
+        else
+        {
+          int lower_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b + 2, col_b, 1);
+          if (lower_box == 4)
+          {
+            data.player_one_score++;
+            i++;
+            (*number_of_boxes_to_adjacent_b)--;
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b + 6, col_b, 1, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);     //  check lower
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b - 2, col_b, 1, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);     // upper
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b + 2, col_b + 8, 1, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // right
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b + 2, col_b - 8, 1, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // left
+          }
+          else
+          {
+            int upper_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b - 2, col_b, 1);
+            if (upper_box == 4)
+            {
+              data.player_one_score++;
+              i++;
+              (*number_of_boxes_to_adjacent_b)--;
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b + 2, col_b, 1, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);     //  lower
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b - 6, col_b, 1, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);     //  upper
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b - 2, col_b + 8, 1, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // right
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b - 2, col_b - 8, 1, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // left
+            }
+          }
+        }
+        print_after_change_beginners(array_of_grid_of_beginners, 1);
+        print_remaining_and_scores_computer(data.Name_Player1, data.player_one_score, data.computer_score, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // still
+        end = clock(); // end time
+        Total_time = Total_time + ((double)(end - start) / CLOCKS_PER_SEC);
+        printf(BARN "Total Time : %f\n" RESET, Total_time);
+      }
+      else if (i % 2 == 1 && (*lines_to_adjacent_b) >= 0)
+      {
+        start = clock();
+        computer_turn(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts);
+        if (letter_be_changed > 96)
+        {
+          int right_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b, col_b + 4, 0);
+          if (right_box == 4)
+          {
+            data.computer_score++;
+            i++;
+            (*number_of_boxes_to_adjacent_b)--;
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b, col_b - 4, 0, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b, col_b + 12, 0, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b - 4, col_b + 4, 0, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b + 4, col_b + 4, 0, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);
+          }
+          else
+          {
+            int left_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b, col_b - 4, 0);
+            if (left_box == 4)
+            {
+              data.computer_score++;
+              i++;
+              (*number_of_boxes_to_adjacent_b)--;
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b, col_b + 4, 0, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);     // check right
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b, col_b - 12, 0, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);    // left
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b - 4, col_b - 4, 0, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // upper
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b + 4, col_b - 4, 0, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // lower
+            }
+          }
+        }
+        else
+        {
+          int lower_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b + 2, col_b, 0);
+          if (lower_box == 4)
+          {
+            data.computer_score++;
+            i++;
+            (*number_of_boxes_to_adjacent_b)--;
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b + 6, col_b, 0, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);     //  check lower
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b - 2, col_b, 0, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);     // upper
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b + 2, col_b + 8, 0, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // right
+            check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b + 2, col_b - 8, 0, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // left
+          }
+          else
+          {
+            int upper_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b - 2, col_b, 0);
+            if (upper_box == 4)
+            {
+              data.computer_score++;
+              i++;
+              (*number_of_boxes_to_adjacent_b)--;
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b + 2, col_b, 0, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);     //  lower
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b - 6, col_b, 0, lines_to_adjacent_b, number_of_boxes_to_adjacent_b);     //  upper
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b - 2, col_b + 8, 0, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // right
+              check_adjacent(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b - 2, col_b - 8, 0, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // left}
+            }
+          }
+        }
+        print_after_change_beginners(array_of_grid_of_beginners, 0);
+        print_remaining_and_scores_computer(data.Name_Player1, data.player_one_score, data.computer_score, lines_to_adjacent_b, number_of_boxes_to_adjacent_b); // still
+        end = clock(); // end time
+        Total_time = Total_time + ((double)(end - start) / CLOCKS_PER_SEC);
+        printf(BARN "Total Time : %f\n" RESET, Total_time);
+      }
+    }
+}
   // be changed
   return 0;
 }

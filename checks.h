@@ -116,6 +116,10 @@ int check_boxes(int MODE_B_E, unsigned char array_of_grid_of_beginners[9][17], u
     {
       array_of_grid_of_beginners[row_mid][column_mid] = '2';
     }
+    else if (number_of_lines == 4 && turn_player == 0 )
+    {
+      array_of_grid_of_beginners[row_mid][column_mid] = '0';
+    }
     return number_of_lines; // return number of lines      can be important
   }
   else
@@ -143,6 +147,9 @@ int check_boxes(int MODE_B_E, unsigned char array_of_grid_of_beginners[9][17], u
     else if (number_of_lines == 4 && turn_player == 2)
     {
       array_of_grid_of_experts[row_mid][column_mid] = '2';
+    }
+    else if (number_of_lines == 4 && turn_player == 0 ){
+      array_of_grid_of_experts[row_mid][column_mid] = '0';
     }
     return number_of_lines; // return number of lines           can be important
   }
