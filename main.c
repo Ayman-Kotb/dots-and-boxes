@@ -57,7 +57,7 @@ int main()
   }
   printf("==========================================\n");
   // prints
-  if (against == 1)
+  if (against == '1')
   {
     printf("whats your name, player 1\n");
     scanf("%s", &data.Name_Player1);
