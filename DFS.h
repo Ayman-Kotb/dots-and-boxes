@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-void check_adjacent(int MODE_B_E, unsigned char array_of_grid_of_beginners[9][17], unsigned char array_of_grid_of_experts[21][41], int row_mid, int column_mid, int turn_player, int *x, int *y)
+void check_adjacent(char MODE_B_E, unsigned char array_of_grid_of_beginners[9][17], unsigned char array_of_grid_of_experts[21][41], int row_mid, int column_mid, int turn_player, int *x, int *y)
 {
     int directional_array_adj[2][4] = {0, 0, -2, 2,
                                       -4, 4, 0, 0};
     int row_d, column_d;
     char letter_will_be_removed = '0';
     int number_of_lines_adj = 0;
-    if (MODE_B_E == 2)
+    if (MODE_B_E == '2')
     {
         if (row_mid > 8 || column_mid > 16 || row_mid < 0 || column_mid < 0)
             return;
@@ -67,7 +67,7 @@ void check_adjacent(int MODE_B_E, unsigned char array_of_grid_of_beginners[9][17
             return;
     }
     //*******************************************************************
-    else if (MODE_B_E == 1)
+    else if (MODE_B_E == '1')
     {
         if (row_mid > 20 || column_mid > 40 || row_mid<0 || column_mid<0 )  return;
         for (int i = 0; i < 4; i++)

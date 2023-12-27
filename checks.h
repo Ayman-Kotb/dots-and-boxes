@@ -90,14 +90,14 @@ int Check_Letter_In_Array_Of_Beginners(char letter_changed, unsigned char array_
     return 2;
   }
 }
-int check_boxes(int MODE_B_E, unsigned char array_of_grid_of_beginners[9][17], unsigned char array_of_grid_of_experts[21][41], int row_mid, int column_mid, int turn_player)
+int check_boxes(char MODE_B_E, unsigned char array_of_grid_of_beginners[9][17], unsigned char array_of_grid_of_experts[21][41], int row_mid, int column_mid, int turn_player)
 {
   int directional_array[2][4] = {0, 0, -2, 2,
                                  -4, 4, 0, 0};
   int row = 0;
   int column = 0;
   int number_of_lines = 0;
-  if (MODE_B_E == 2)
+  if (MODE_B_E == '2')
   {
     for (int i = 0; i < 4; i++)
     {

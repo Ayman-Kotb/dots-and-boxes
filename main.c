@@ -19,6 +19,7 @@ int main()
 {
   srand(time(NULL));//for computer random;
   clock_t start, end; // Time start , end;
+
   data.player_one_score = 0;
   data.player_two_score = 0;
   data.computer_score = 0;
@@ -26,38 +27,33 @@ int main()
   data.number_of_remaining_boxes_e = 25;
   data.number_of_remaining_lines_e = 60;
   data.number_of_remaining_lines_b = 12;
-  int *lines_to_adjacent_b = &data.number_of_remaining_lines_b;           // go to adjacent;
-  int *lines_to_adjacent_e = &data.number_of_remaining_lines_e;           // go to adjacent;
-  int *number_of_boxes_to_adjacent_e = &data.number_of_remaining_boxes_e; // go to adjacent;
-  int *number_of_boxes_to_adjacent_b = &data.number_of_remaining_boxes_b; // go to adjacent;
 
   time_t now = time(NULL); // time;
   char *string_now = ctime(&now);
 
-  int MODE_B_E = 0;
-  int against;
+  char MODE_B_E = '0';
+  char against;
   // TAke names and who play against:
-  printf("\n" MAGE "Welcome to Dots and Boxes Game!" RESET "\n\n");
-  printf(MAGE "%s" RESET, string_now); // print time;
+  printf("\n" MAGE " Welcome to Dots and Boxes Game " RESET "\n\n");
+  printf(MAGE " %s" RESET, string_now); // print time;
   printf("\nwhat mode U want to play\n1: Experts Mode\n2: Beginner Mode\n");
 
-  scanf(" %d", &MODE_B_E);
+  scanf(" %c", &MODE_B_E);
   // Error when enter letters?!
-  while ((MODE_B_E != 1) && (MODE_B_E != 2))
+  while ((MODE_B_E != '1') && (MODE_B_E != '2'))
   {
     printf("Invalid , please select the number of the mode U want from 1:2\n");
     printf("1: Experts Mode\n2: Beginner Mode\n");
-    scanf(" %d", &MODE_B_E);
+    scanf(" %c", &MODE_B_E);
   }
-
   printf("==========================================\n");
   printf("choose who do U want to play against\n1: another Player\n2: Computer\n");
-  scanf("%d", &against);
-  while ((against != 1) && (against != 2))
+  scanf(" %c", &against);
+  while ((against != '1') && (against != '2'))
   {
     printf("Invalid , please select the number who U want to play against from 1:2\n");
     printf("1: another Player\n2: Computer\n");
-    scanf("%d", &against);
+    scanf(" %c", &against);
   }
   printf("==========================================\n");
   // prints
@@ -81,7 +77,7 @@ int main()
   }
   // turns
   char letter_to_be_changed;
-  if (MODE_B_E == 1 && against == 1) // two players in the experts mode
+  if (MODE_B_E == '1' && against == '1') // two players in the experts mode
   {
     creat_initial_grid_for_experts(array_of_grid_of_experts);
     print_initial_E(array_of_grid_of_experts); // still
@@ -232,7 +228,7 @@ int main()
     }
     print_win(data.Name_Player1, data.Name_Player2, data.player_one_score, data.player_two_score, data.computer_score, against);
   }
-  else if (MODE_B_E == 1 && against == 2) // one player vs computer in the experts mode
+  else if (MODE_B_E =='1' && against == '2') // one player vs computer in the experts mode
   {
     creat_initial_grid_for_experts(array_of_grid_of_experts);
     print_initial_E(array_of_grid_of_experts); // still
@@ -383,7 +379,7 @@ int main()
     }
     print_win(data.Name_Player1, data.Name_Player2, data.player_one_score, data.player_two_score, data.computer_score, against);
   }
-  else if (MODE_B_E == 2 && against == 1) // two player in the beginner mode
+  else if (MODE_B_E == '2' && against == '1') // two player in the beginner mode
   {
     creat_initial_grid_for_beginners(array_of_grid_of_beginners);
     print_initial_B(array_of_grid_of_beginners);

@@ -13,7 +13,8 @@
         "initialgrid.h": "c",
         "data.h": "c",
         "print.h": "c",
-        "dfs.h": "c"
+        "dfs.h": "c",
+        "string.h": "c"
     },
     "cmake.sourceDirectory": "${workspaceFolder}/Users/Mega Store/.vscode/extensions/twxs.cmake-0.0.17/node_modules/peg-cmake/test",
     "cSpell.words": [
