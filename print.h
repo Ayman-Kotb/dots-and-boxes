@@ -151,19 +151,12 @@ void print_after_change_experts(unsigned char array_of_grid_of_experts[21][41], 
   }
 }
 
-void print_remaining_and_scores_E(char name_1[50], char name_2[50], int player_1_scores, int player_2_scores, int *remaining_lines_E, int *remaining_boxes_E)
+void print_remaining_and_scores(char name_1[50], char name_2[50], int player_1_scores, int player_2_scores, int *remaining_lines, int *remaining_boxes)
 {
   printf(BRED "\n%s score : %d\n" RESET, name_1, player_1_scores);
   printf(BIBLE "%s score : %d\n" RESET, name_2, player_2_scores);
-  printf(BAYLE "number of remaining lines : %d\n" RESET, *remaining_lines_E);
-  printf(BAYLE "number of remaining boxes : %d\n" RESET, *remaining_boxes_E);
-}
-void print_remaining_and_scores_B(char name_1[50], char name_2[50], int player_1_scores, int player_2_scores, int *remaining_lines_B, int *remaining_boxes_B)
-{
-  printf(BRED "\n%s score : %d\n" RESET, name_1, player_1_scores);
-  printf(BIBLE "%s score : %d\n" RESET, name_2, player_2_scores);
-  printf(BAYLE "number of remaining lines : %d\n" RESET, *remaining_lines_B);
-  printf(BAYLE "number of remaining boxes : %d\n" RESET, *remaining_boxes_B);
+  printf(BAYLE "number of remaining lines : %d\n" RESET, *remaining_lines);
+  printf(BAYLE "number of remaining boxes : %d\n" RESET, *remaining_boxes);
 }
 void print_remaining_and_scores_computer(char name_1[50], int player_1_scores, int computer_score, int *remaining_lines, int *remaining_boxes)
 {
@@ -171,4 +164,37 @@ void print_remaining_and_scores_computer(char name_1[50], int player_1_scores, i
   printf(BIBLE "Computer's score : %d\n" RESET, computer_score);
   printf(BAYLE "number of remaining lines : %d\n" RESET, *remaining_lines);
   printf(BAYLE "number of remaining boxes : %d\n" RESET, *remaining_boxes);
+}
+void print_win(char name_1[50], char name_2[50], int player_1_scores, int player_2_scores, int computer_score, int against_s)
+{
+  if (against_s == 1)
+  {
+    if (data.player_two_score > data.player_one_score)
+    {
+      printf("\n\t" MAGE " %s Won the game " RESET "\n", data.Name_Player2);
+    }
+    else if (data.player_two_score < data.player_one_score)
+    {
+      printf("\n\t" MAGE " %s Won the game " RESET "\n", data.Name_Player1);
+    }
+    else
+    {
+      printf("\n\t" MAGE " Draw " RESET "\n");
+    }
+  }
+  else
+  {
+    if (data.computer_score > data.player_one_score)
+    {
+      printf("\n\t" MAGE " Computer won the game " RESET "\n");
+    }
+    else if (data.computer_score < data.player_one_score)
+    {
+      printf("\n\t" MAGE " %s Won the game " RESET "\n", data.Name_Player1);
+    }
+    else
+    {
+      printf("\n\t" MAGE " Draw " RESET "\n");
+    }
+  }
 }
