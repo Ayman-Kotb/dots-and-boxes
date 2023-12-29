@@ -64,7 +64,7 @@ void creat_initial_grid_for_beginners(unsigned char array_of_grid_of_beginners[9
       }
     }
   }
-}
+}//initial;
 // Experts
 void creat_initial_grid_for_experts(unsigned char array_of_grid_of_experts[21][41])
 {

@@ -13,7 +13,7 @@
 // arrays
 unsigned char array_of_grid_of_beginners[9][17];
 unsigned char array_of_grid_of_experts[21][41];
-double Total_time = 0.0; // Time;
+//total // Time;
 // code;
 int main()
 {
@@ -77,6 +77,8 @@ int main()
   }
   // turns
   char letter_to_be_changed;
+  //game_loop(MODE_B_E,against,array_of_grid_of_beginners,array_of_grid_of_experts);//test;
+  
   if (MODE_B_E == '1' && against == '1') // two players in the experts mode
   {
     creat_initial_grid_for_experts(array_of_grid_of_experts);

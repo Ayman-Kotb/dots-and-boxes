@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//
+//grid;
 
 int row_to_print = 50;    // go to print
 int column_to_print = 50; // go to print

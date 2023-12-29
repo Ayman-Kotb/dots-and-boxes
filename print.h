@@ -166,7 +166,7 @@ void print_remaining_and_scores_computer(char name_1[50], int player_1_scores, i
   printf(BAYLE "number of remaining boxes : %d\n" RESET, *remaining_boxes);
 }
 void print_win(char name_1[50], char name_2[50], int player_1_scores, int player_2_scores, int computer_score, char against_s)
-{
+{//win;
   if (against_s == '1')
   {
     if (data.player_two_score > data.player_one_score)

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-//
+//turns;
 char letter_be_changed = '0';
 int taken_characters = 0;
 int *p_of_taken_char = &taken_characters;// pointer on taken character;

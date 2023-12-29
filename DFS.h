@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 void check_adjacent(char MODE_B_E, unsigned char array_of_grid_of_beginners[9][17], unsigned char array_of_grid_of_experts[21][41], int row_mid, int column_mid, int turn_player, int *x, int *y)
 {
     int directional_array_adj[2][4] = {0, 0, -2, 2,

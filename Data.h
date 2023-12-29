@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
+//data;
 // make structs of data here
 typedef struct
 {
