@@ -10,6 +10,7 @@
 #include "print.h"
 #include "gameloop.h"
 #include "DFS.h"
+#include "leadboardfile.h"
 // arrays
 unsigned char array_of_grid_of_beginners[9][17];
 unsigned char array_of_grid_of_experts[21][41];
@@ -17,6 +18,27 @@ unsigned char array_of_grid_of_experts[21][41];
 // code;
 int main()
 {
+    char wants = '0';
+  printf(BRED"please enter what do U want\n1: see leadboard\n2: play agame\n"RESET);
+  scanf(" %c",&wants);
+  printf("================================");
+  while(wants != '1' && wants != '2')
+  {
+      printf("\n");
+      printf(BRED"please enter what do U want again\n1: see leadboard\n2: play agame\n"RESET);
+      scanf(" %c",&wants);
+      printf("================================");
+  }
+  if(wants == '1')
+  {
+      print_shape_Top10();
+      printf("\n\n");
+     read_and_sor_from_file();
+     print_top10();
+     return 0;
+  }
+  else
+  {
   srand(time(NULL));//for computer random;
   clock_t start, end; // Time start , end;
 
@@ -34,6 +56,7 @@ int main()
   char MODE_B_E = '0';
   char against;
   // TAke names and who play against:
+  clearConsole();
   printf("\n" MAGE " Welcome to Dots and Boxes Game " RESET "\n\n");
   printf(MAGE " %s" RESET, string_now); // print time;
   printf("\nwhat mode U want to play\n1: Experts Mode\n2: Beginner Mode\n");
@@ -78,7 +101,7 @@ int main()
   // turns
   char letter_to_be_changed;
   //game_loop(MODE_B_E,against,array_of_grid_of_beginners,array_of_grid_of_experts);//test;
-  
+
   if (MODE_B_E == '1' && against == '1') // two players in the experts mode
   {
     creat_initial_grid_for_experts(array_of_grid_of_experts);
@@ -676,6 +699,8 @@ int main()
     }
     print_win(data.Name_Player1, data.Name_Player2, data.player_one_score, data.player_two_score, data.computer_score, against);
   }
+  put_in_file(against,data.Name_Player1,data.Name_Player2,data.player_one_score,data.player_two_score,data.computer_score);
   // be changed
   return 0;
+  }
 }

@@ -21,11 +21,9 @@ void clearConsole()
     printf("\e[1;1H\e[2J");
 }
 
-typedef struct // to creat lead board;//still;
+typedef struct
 {
-    char Name[100];
-    int score;
-} Player;
-Player players[20];
-Player player1;
-Player player2;
+    char names[50];
+    int scores;
+}lead;
+
