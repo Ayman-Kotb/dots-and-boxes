@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-//data;
-// make structs of data here
+// data;
+//  make structs of data here
 typedef struct
 {
     int player_one_score;
@@ -25,5 +25,4 @@ typedef struct
 {
     char names[50];
     int scores;
-}lead;
-
+} lead;

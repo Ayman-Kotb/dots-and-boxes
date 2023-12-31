@@ -9,7 +9,7 @@ void print_initial_B(unsigned char array_of_grid_of_beginners[9][17])
   {
     for (int column = 0; column < 17; column++)
     {
-      if (array_of_grid_of_beginners[row][column] == '+'||array_of_grid_of_beginners[row][column] == '|'||array_of_grid_of_beginners[row][column] == '-')
+      if (array_of_grid_of_beginners[row][column] == '+' || array_of_grid_of_beginners[row][column] == '|' || array_of_grid_of_beginners[row][column] == '-')
       {
         printf(WHITE "%c" RESET, array_of_grid_of_beginners[row][column]);
       }
@@ -29,7 +29,7 @@ void print_initial_E(unsigned char array_of_grid_of_experts[21][41])
   {
     for (int column = 0; column < 41; column++)
     {
-      if (array_of_grid_of_experts[row][column] == '+'||array_of_grid_of_experts[row][column] == '-'||(array_of_grid_of_experts[row][column] == '|'&&(row!=18 && column !=24)))
+      if (array_of_grid_of_experts[row][column] == '+' || array_of_grid_of_experts[row][column] == '-' || (array_of_grid_of_experts[row][column] == '|' && (row != 18 && column != 24)))
       {
         printf(WHITE "%c" RESET, array_of_grid_of_experts[row][column]);
       }
@@ -166,7 +166,7 @@ void print_remaining_and_scores_computer(char name_1[50], int player_1_scores, i
   printf(BAYLE "number of remaining boxes : %d\n" RESET, *remaining_boxes);
 }
 void print_win(char name_1[50], char name_2[50], int player_1_scores, int player_2_scores, int computer_score, char against_s)
-{//win;
+{ // win;
   if (against_s == '1')
   {
     if (data.player_two_score > data.player_one_score)

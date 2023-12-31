@@ -8,7 +8,7 @@ int col_b = 0;                                                                  
 int row_to_chain = 0;                                                                                     // go to chain
 int col_to_chain = 0;                                                                                     // go to chain
 int Check_Letter_In_Array_Of_Experts(char letter_changed, unsigned char array_of_grid_of_experts[21][41]) // check letter choosen in array
-{//check;
+{                                                                                                         // check;
   int Found = 0;
   for (int row_c = 0; row_c < 21; row_c++)
   {
