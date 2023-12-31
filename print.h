@@ -51,7 +51,14 @@ void print_initial_E(unsigned char array_of_grid_of_experts[21][41])
       }
       else
       {
-        printf((YELLOW "%c" RESET), array_of_grid_of_experts[row][column]);
+        if((row == 18 && column == 24)&&array_of_grid_of_experts[17][24]=='|')//!new
+          {
+              printf((WHITE "%c" RESET), array_of_grid_of_experts[row][column]);//!new
+          }
+          else//!new
+          {
+              printf((YELLOW "%c" RESET), array_of_grid_of_experts[row][column]);
+          }
       }
     }
     printf("\n");

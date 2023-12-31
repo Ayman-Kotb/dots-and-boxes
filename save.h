@@ -155,7 +155,7 @@ void load_game(char name_player1[50], char name_player2[50], int *score1, int *s
             }
         }
     }
-    game_loop_load(mode, twop_or_onep, array_of_b, array_of_e, num_of_lines, num_of_boxes, turn, *score1, *score2, name_player1, name_player2);
+    game_loop_load(mode, twop_or_onep, array_of_b, array_of_e, num_of_lines, num_of_boxes, turn, score1, score2, name_player1, name_player2);
     fclose(file);
     printf("game has been saved successfully\nyour file is (%s)\n", filename);
 }
