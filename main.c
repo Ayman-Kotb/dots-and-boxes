@@ -2,15 +2,17 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h> // time
+#include <dirent.h>
 #include "initialGrid.h"
 #include "Grid_change.h"
 #include "checks.h"
-#include "Turns.h"
+#include "save.h"
 #include "Data.h"
+#include "Turns.h"
 #include "print.h"
-#include "gameloop.h"
 #include "DFS.h"
 #include "leadboardfile.h"
+#include "gameloop.h"
 // arrays
 unsigned char array_of_grid_of_beginners[9][17];
 unsigned char array_of_grid_of_experts[21][41];
@@ -18,18 +20,26 @@ unsigned char array_of_grid_of_experts[21][41];
 // code;
 int main()
 {
+  time_t now = time(NULL); // time;
+  char *string_now = ctime(&now);
+  srand(time(NULL));//for computer random;
+  clock_t start, end; // Time start , end;
+  char stat[10] ;
     char wants = '0';
-  printf(BRED"please enter what do U want\n1: see leadboard\n2: play agame\n"RESET);
+  clearConsole();
+  printf("\n" MAGE " Welcome to Dots and Boxes Game " RESET "\n\n");
+  printf(MAGE " %s" RESET, string_now); // print time;
+  printf(BRED"1:play a game\n2:see leadboard\n"RESET);
   scanf(" %c",&wants);
   printf("================================");
   while(wants != '1' && wants != '2')
   {
       printf("\n");
-      printf(BRED"please enter what do U want again\n1: see leadboard\n2: play agame\n"RESET);
+      printf(BRED"1:play a game\n2:see leadboard\n"RESET);
       scanf(" %c",&wants);
       printf("================================");
   }
-  if(wants == '1')
+  if(wants == '2')
   {
       print_shape_Top10();
       printf("\n\n");
@@ -39,8 +49,8 @@ int main()
   }
   else
   {
-  srand(time(NULL));//for computer random;
-  clock_t start, end; // Time start , end;
+  //srand(time(NULL));//for computer random;
+  //clock_t start, end; // Time start , end;
 
   data.player_one_score = 0;
   data.player_two_score = 0;
@@ -50,15 +60,30 @@ int main()
   data.number_of_remaining_lines_e = 60;
   data.number_of_remaining_lines_b = 12;
 
-  time_t now = time(NULL); // time;
-  char *string_now = ctime(&now);
+  //time_t now = time(NULL); // time;
+  //char *string_now = ctime(&now);
 
   char MODE_B_E = '0';
   char against;
   // TAke names and who play against:
   clearConsole();
-  printf("\n" MAGE " Welcome to Dots and Boxes Game " RESET "\n\n");
-  printf(MAGE " %s" RESET, string_now); // print time;
+  //printf("\n" MAGE " Welcome to Dots and Boxes Game " RESET "\n\n");
+  //printf(MAGE " %s" RESET, string_now); // print time;
+  printf(BRED"1:load game\n2:play a new game\n"RESET) ;
+  scanf(" %c",&wants);
+  printf("================================");
+  while(wants != '1' && wants != '2')
+  {
+      printf("\n");
+      printf(BRED"1:load game\n2:play a new game\n"RESET);
+      scanf(" %c",&wants);
+      printf("================================\n");
+  }
+  if (wants=='1'){
+    load_game( data.Name_Player1 ,data.Name_Player2 ,&data.player_one_score ,&data.player_two_score ) ;
+
+  }
+  else{
   printf("\nwhat mode U want to play\n1: Experts Mode\n2: Beginner Mode\n");
 
   scanf(" %c", &MODE_B_E);
@@ -100,9 +125,9 @@ int main()
   }
   // turns
   char letter_to_be_changed;
-  //game_loop(MODE_B_E,against,array_of_grid_of_beginners,array_of_grid_of_experts);//test;
+  game_loop_new(MODE_B_E,against,array_of_grid_of_beginners,array_of_grid_of_experts);//test;
 
-  if (MODE_B_E == '1' && against == '1') // two players in the experts mode
+  /*if (MODE_B_E == '1' && against == '1') // two players in the experts mode
   {
     creat_initial_grid_for_experts(array_of_grid_of_experts);
     print_initial_E(array_of_grid_of_experts); // still
@@ -110,15 +135,16 @@ int main()
     printf(BARN "Total time : 0" RESET "\n");
     for (int i = 0; i < 84; i++)
     {
-      if (*lines_to_adjacent_e < 0)
+      if (*lines_to_adjacent_e < 1)
         break;
       // error in number of loops
+      //save_game_2p(MODE_B_E,data.Name_Player1, data.Name_Player2, data.player_one_score , data.player_two_score ,array_of_grid_of_beginners , array_of_grid_of_experts , data.number_of_remaining_lines_e , data.number_of_remaining_boxes_e , i) ;
       (*lines_to_adjacent_e)--; // error in number of loops
       if (i % 2 == 0 && (*lines_to_adjacent_e) >= 0)
       {
         start = clock(); // start time
 
-        player_one_turn(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, data.Name_Player1);
+        player_one_turn(MODE_B_E, '2',array_of_grid_of_beginners, array_of_grid_of_experts, data.Name_Player1 , i);
         if (letter_be_changed > 96)
         {
           int right_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e, col_e + 4, 1);
@@ -186,7 +212,7 @@ int main()
       {
         start = clock(); // start clock
 
-        player_two_turn(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, data.Name_Player2);
+        player_two_turn(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, data.Name_Player2 ,i);
         if (letter_be_changed > 96)
         {
           int right_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e, col_e + 4, 2);
@@ -269,7 +295,7 @@ int main()
       {
         start = clock(); // start time
 
-        player_one_turn(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, data.Name_Player1);
+        player_one_turn(MODE_B_E,'1', array_of_grid_of_beginners, array_of_grid_of_experts, data.Name_Player1,i);
         if (letter_be_changed > 96)
         {
           int right_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_e, col_e + 4, 1);
@@ -418,7 +444,7 @@ int main()
       if (i % 2 == 0 && (*lines_to_adjacent_b) >= 0)
       {
         start = clock();
-        player_one_turn(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, data.Name_Player1);
+        player_one_turn(MODE_B_E, '2',array_of_grid_of_beginners, array_of_grid_of_experts, data.Name_Player1,i);
         if (letter_be_changed > 96)
         {
           int right_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b, col_b + 4, 1);
@@ -485,7 +511,7 @@ int main()
       else if (i % 2 == 1 && (*lines_to_adjacent_b) >= 0)
       {
         start = clock();
-        player_two_turn(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, data.Name_Player2);
+        player_two_turn(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, data.Name_Player2,i);
         if (letter_be_changed > 96)
         {
           int right_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b, col_b + 4, 2);
@@ -567,7 +593,7 @@ int main()
       if (i % 2 == 0 && (*lines_to_adjacent_b) >= 0)
       {
         start = clock();
-        player_one_turn(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, data.Name_Player1);
+        player_one_turn(MODE_B_E,'1', array_of_grid_of_beginners, array_of_grid_of_experts, data.Name_Player1,i);
         if (letter_be_changed > 96)
         {
           int right_box = check_boxes(MODE_B_E, array_of_grid_of_beginners, array_of_grid_of_experts, row_b, col_b + 4, 1);
@@ -701,6 +727,7 @@ int main()
   }
   put_in_file(against,data.Name_Player1,data.Name_Player2,data.player_one_score,data.player_two_score,data.computer_score);
   // be changed
-  return 0;
   }
+  }*/
+   }} return 0;
 }
