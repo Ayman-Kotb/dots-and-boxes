@@ -5,7 +5,7 @@
 
 void save_game(char mode, char twop_or_onep, char name_player1[50], char name_player2[50], int score1, int score2, unsigned char array_of_b[9][17], unsigned char array_of_e[21][41], int num_of_lines, int num_of_boxes, int turn)
 {
-    FILE *fp[6];
+    FILE *fp[20];
     static int x = 0;
     char filename[40];
     printf("Enter the name of the save game\n");

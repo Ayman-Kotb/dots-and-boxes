@@ -13,6 +13,14 @@ void print_initial_B(unsigned char array_of_grid_of_beginners[9][17])
       {
         printf(WHITE "%c" RESET, array_of_grid_of_beginners[row][column]);
       }
+      else if(array_of_grid_of_beginners[row][column] == '0'||array_of_grid_of_beginners[row][column] == '2')
+      {
+          printf(BIBLE "%c" RESET, array_of_grid_of_beginners[row][column]);
+      }
+      else if(array_of_grid_of_beginners[row][column] == '1')
+      {
+          printf(BRED "%c" RESET, array_of_grid_of_beginners[row][column]);
+      }
       else
       {
         printf((YELLOW "%c" RESET), array_of_grid_of_beginners[row][column]);
@@ -29,9 +37,17 @@ void print_initial_E(unsigned char array_of_grid_of_experts[21][41])
   {
     for (int column = 0; column < 41; column++)
     {
-      if (array_of_grid_of_experts[row][column] == '+' || array_of_grid_of_experts[row][column] == '-' || (array_of_grid_of_experts[row][column] == '|' && (row != 18 && column != 24)))
+      if (array_of_grid_of_experts[row][column] == '+' || array_of_grid_of_experts[row][column] == '-' || (array_of_grid_of_experts[row][column] == '|' && (row != 18 || column != 24)))
       {
         printf(WHITE "%c" RESET, array_of_grid_of_experts[row][column]);
+      }
+      else if(array_of_grid_of_experts[row][column] == '0' || array_of_grid_of_experts[row][column] == '2' )
+      {
+          printf(BIBLE "%c" RESET, array_of_grid_of_experts[row][column]);
+      }
+      else if(array_of_grid_of_experts[row][column] == '1')
+      {
+          printf(BRED "%c" RESET, array_of_grid_of_experts[row][column]);
       }
       else
       {
