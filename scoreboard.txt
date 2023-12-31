@@ -1,3 +1,5 @@
 Name : ahmed , Score : 23
 Name : abdelrahman , Score : 4
 Name : abdo_saeed , Score : 3
+Name : jordi , Score : 24
+Name : kaka , Score : 3

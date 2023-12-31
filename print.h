@@ -9,7 +9,7 @@ void print_initial_B(unsigned char array_of_grid_of_beginners[9][17])
   {
     for (int column = 0; column < 17; column++)
     {
-      if (array_of_grid_of_beginners[row][column] == '+')
+      if (array_of_grid_of_beginners[row][column] == '+'||array_of_grid_of_beginners[row][column] == '|'||array_of_grid_of_beginners[row][column] == '-')
       {
         printf(WHITE "%c" RESET, array_of_grid_of_beginners[row][column]);
       }
@@ -29,7 +29,7 @@ void print_initial_E(unsigned char array_of_grid_of_experts[21][41])
   {
     for (int column = 0; column < 41; column++)
     {
-      if (array_of_grid_of_experts[row][column] == '+')
+      if (array_of_grid_of_experts[row][column] == '+'||array_of_grid_of_experts[row][column] == '-'||(array_of_grid_of_experts[row][column] == '|'&&(row!=18 && column !=24)))
       {
         printf(WHITE "%c" RESET, array_of_grid_of_experts[row][column]);
       }

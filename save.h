@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h> // time
 
-void save_game( char mode, char twop_or_onep , char name_player1 [50] , char name_player2 [50] , int score1, int score2, unsigned char array_of_b [9][17] , unsigned char array_of_e [21][41] , int num_of_lines , int num_of_boxes , int turn){    
+void save_game( char mode, char twop_or_onep , char name_player1 [50] , char name_player2 [50] , int score1, int score2, unsigned char array_of_b [9][17] , unsigned char array_of_e [21][41] , int num_of_lines , int num_of_boxes , int turn){
     FILE *fp [6] ;
     static int  x = 0 ;
     char filename[40] ;
@@ -23,9 +23,9 @@ void save_game( char mode, char twop_or_onep , char name_player1 [50] , char nam
     fprintf(fp[x], "%c\n%c\n%s\n%s\n%d\n%d\n%d\n%d\n%d\n",mode,twop_or_onep, name_player1, name_player2, score1, score2 , num_of_lines , num_of_boxes , turn);
     for (int i = 0; i < 21; i++) {
         for (int j = 0; j < 41; j++) {
-            fprintf(fp[x], "%c ", array_of_e[i][j]);
+            fprintf(fp[x], "%c", array_of_e[i][j]);
         }
-        fprintf(fp[x], "\n");
+        //fprintf(fp[x], "\n");
     }
     fclose(fp[x]);
     printf("game has been saved successfully\nyour file is (%s)\n", filename);
@@ -43,9 +43,9 @@ else if (mode == '2' && twop_or_onep == '2'){
     fprintf(fp[x], "%c\n%c\n%s\n%s\n%d\n%d\n%d\n%d\n%d\n",mode,twop_or_onep, name_player1, name_player2, score1, score2 , num_of_lines , num_of_boxes , turn);
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 17; j++) {
-            fprintf(fp[x], "%c ", array_of_b[i][j]);
+            fprintf(fp[x], "%c", array_of_b[i][j]);
         }
-        fprintf(fp[x], "\n");
+        //fprintf(fp[x], "\n");
     }
 }
 else if (mode == '1' && twop_or_onep == '1'){
@@ -58,12 +58,12 @@ else if (mode == '1' && twop_or_onep == '1'){
         //}
     }
     printf("file has been opened successfully\n");
-    fprintf(fp[x], "%c\n%c\n%s\n%d\n%d\n%d\n%d\n%d\n",mode,twop_or_onep, name_player1,  score1, score2 , num_of_lines , num_of_boxes , turn);
+    fprintf(fp[x], "%c\n%c\n%s\n%s\n%d\n%d\n%d\n%d\n%d\n",mode,twop_or_onep, name_player1,name_player2 , score1, score2 , num_of_lines , num_of_boxes , turn);
     for (int i = 0; i < 21; i++) {
         for (int j = 0; j < 41; j++) {
-            fprintf(fp[x], "%c ", array_of_e[i][j]);
+            fprintf(fp[x], "%c", array_of_e[i][j]);
         }
-        fprintf(fp[x], "\n");
+        //fprintf(fp[x], "\n");
     }
     fclose(fp[x]);
     printf("game has been saved successfully\nyour file is (%s)\n", filename);
@@ -78,12 +78,12 @@ else if (mode == '2' && twop_or_onep == '1'){
         }
     }
     printf("file has been opened successfully\n");
-    fprintf(fp[x], "%c\n%c\n%s\n%d\n%d\n%d\n%d\n%d\n",mode,twop_or_onep, name_player1, score1, score2 , num_of_lines , num_of_boxes , turn);
+    fprintf(fp[x], "%c\n%c\n%s\n%s\n%d\n%d\n%d\n%d\n%d\n",mode,twop_or_onep, name_player1,name_player2 ,score1, score2 , num_of_lines , num_of_boxes , turn);
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 17; j++) {
-            fprintf(fp[x], "%c ", array_of_b[i][j]);
+            fprintf(fp[x], "%c", array_of_b[i][j]);
         }
-        fprintf(fp[x], "\n");
+        //fprintf(fp[x], "\n");
     }
     fclose(fp[x]);
     printf("game has been saved successfully\nyour file is (%s)\n", filename);
@@ -91,7 +91,7 @@ else if (mode == '2' && twop_or_onep == '1'){
 x++;
 }
 //************************************************************************
-void load_game(char name_player1 [50] , char name_player2 [50] , int* score1, int* score2){    
+void load_game(char name_player1 [50] , char name_player2 [50] , int* score1, int* score2){
     int turn ,  num_of_lines , num_of_boxes ;
     char mode , twop_or_onep ;
     unsigned char array_of_b[9][17] ;
@@ -99,7 +99,7 @@ void load_game(char name_player1 [50] , char name_player2 [50] , int* score1, in
 
     char filename[50];
     //displaySaveGames();
-    
+
     printf("\nEnter the name of the save game file you want to load:\n");
     scanf("%s", filename);
     FILE *file = fopen(filename, "rb");
@@ -108,9 +108,9 @@ void load_game(char name_player1 [50] , char name_player2 [50] , int* score1, in
         perror("Error opening file");
         return ;
     }
-    else {printf("file has been opened successfully\n");}    
+    else {printf("file has been opened successfully\n");}
     int ch;
-    fscanf(file, "%c\n%c\n%s\n%s\n%d\n%d\n%d\n%d\n%d" ,&mode ,&twop_or_onep, name_player1, name_player2, *score1 ,*score2 ,&num_of_lines ,&num_of_boxes,&turn);
+    fscanf(file, "%c\n%c\n%s\n%s\n%d\n%d\n%d\n%d\n%d\n" ,&mode ,&twop_or_onep,name_player1, name_player2,& *score1 ,&*score2 ,&num_of_lines ,&num_of_boxes,&turn);
     if (mode =='1'){
     for (int i = 0; i < 21; i++) {
         for (int j = 0; j < 41; j++) {
@@ -125,10 +125,10 @@ void load_game(char name_player1 [50] , char name_player2 [50] , int* score1, in
         }
     }
     }
-    game_loop_load(mode ,twop_or_onep ,array_of_b ,array_of_e ,num_of_lines ,num_of_boxes ,turn);
+    game_loop_load(mode ,twop_or_onep ,array_of_b ,array_of_e ,num_of_lines ,num_of_boxes ,turn,*score1,*score2,name_player1,name_player2);
     fclose(file);
     printf("game has been saved successfully\nyour file is (%s)\n", filename);
-    
+
 }
 
 

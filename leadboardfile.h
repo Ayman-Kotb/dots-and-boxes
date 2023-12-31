@@ -162,4 +162,10 @@ void print_top10()
         }
     }
 }
-
+void print_top_10_players()
+{
+      print_shape_Top10();
+      printf("\n\n");
+      read_and_sor_from_file();
+      print_top10();
+}

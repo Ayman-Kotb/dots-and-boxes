@@ -17,7 +17,8 @@ void player_one_turn(char MODE_B_E, char twop_or_onep , unsigned char array_of_g
     scanf(" %c", &letter_be_changed);
     printf("\n");
     if (letter_be_changed=='1') {
-    save_game(MODE_B_E,twop_or_onep ,data.Name_Player1, data.Name_Player2, data.player_one_score , data.player_two_score ,array_of_grid_of_beginners , array_of_grid_of_experts , data.number_of_remaining_lines_e , data.number_of_remaining_boxes_e , numofloop) ;
+    save_game(MODE_B_E,twop_or_onep ,data.Name_Player1, data.Name_Player2, data.player_one_score , data.player_two_score ,array_of_grid_of_beginners ,
+               array_of_grid_of_experts , data.number_of_remaining_lines_e , data.number_of_remaining_boxes_e , numofloop) ;
     exit(0) ;
     }
     //else if (letter_be_changed=='2') { //still
@@ -33,6 +34,11 @@ void player_one_turn(char MODE_B_E, char twop_or_onep , unsigned char array_of_g
       printf("please enter the letter U want to change again, %s\n", Name_Player1);
       scanf(" %c", &letter_be_changed);
       printf("\n");
+      if (letter_be_changed=='1') {
+           save_game(MODE_B_E,twop_or_onep ,data.Name_Player1, data.Name_Player2, data.player_one_score , data.player_two_score ,array_of_grid_of_beginners ,
+               array_of_grid_of_experts , data.number_of_remaining_lines_e , data.number_of_remaining_boxes_e , numofloop) ;
+           exit(0) ;
+        }
       checked_letter = Check_Letter_In_Array_Of_Experts(letter_be_changed, array_of_grid_of_experts);
     }
     array_of_taken_characters[(*p_of_taken_char)] = letter_be_changed;
@@ -47,7 +53,8 @@ void player_one_turn(char MODE_B_E, char twop_or_onep , unsigned char array_of_g
     scanf(" %c", &letter_be_changed);
     printf("\n");
     if (letter_be_changed=='1') {
-    save_game(MODE_B_E ,twop_or_onep, data.Name_Player1, data.Name_Player2, data.player_one_score , data.player_two_score ,array_of_grid_of_beginners , array_of_grid_of_experts , data.number_of_remaining_lines_e , data.number_of_remaining_boxes_e , numofloop) ;
+    save_game(MODE_B_E ,twop_or_onep, data.Name_Player1, data.Name_Player2, data.player_one_score , data.player_two_score ,array_of_grid_of_beginners ,
+               array_of_grid_of_experts , data.number_of_remaining_lines_b , data.number_of_remaining_boxes_b , numofloop) ;
     exit(0) ;
     }
     //else if (letter_be_changed=='2') { //still
@@ -64,6 +71,11 @@ void player_one_turn(char MODE_B_E, char twop_or_onep , unsigned char array_of_g
       printf("please enter the letter U want to change again, %s\n", Name_Player1);
       scanf(" %c", &letter_be_changed);
       printf("\n");
+      if (letter_be_changed=='1') {
+             save_game(MODE_B_E ,twop_or_onep, data.Name_Player1, data.Name_Player2, data.player_one_score , data.player_two_score ,array_of_grid_of_beginners ,
+               array_of_grid_of_experts , data.number_of_remaining_lines_b , data.number_of_remaining_boxes_b , numofloop) ;
+           exit(0) ;
+        }
       checked_letter = Check_Letter_In_Array_Of_Beginners(letter_be_changed, array_of_grid_of_beginners);
     }
     array_of_taken_characters[(*p_of_taken_char)] = letter_be_changed;
@@ -82,7 +94,8 @@ void player_two_turn(char MODE_B_E, unsigned char array_of_grid_of_beginners[9][
     scanf(" %c", &letter_be_changed);
     printf("\n");
     if (letter_be_changed=='1') {
-    save_game(MODE_B_E,'2' ,data.Name_Player1, data.Name_Player2, data.player_one_score , data.player_two_score ,array_of_grid_of_beginners , array_of_grid_of_experts , data.number_of_remaining_lines_e , data.number_of_remaining_boxes_e , numofloop) ;
+    save_game(MODE_B_E,'2' ,data.Name_Player1, data.Name_Player2, data.player_one_score , data.player_two_score ,array_of_grid_of_beginners ,
+               array_of_grid_of_experts , data.number_of_remaining_lines_e , data.number_of_remaining_boxes_e , numofloop) ;
     exit(0) ;
     }
     //else if (letter_be_changed=='2') { //still
@@ -99,6 +112,11 @@ void player_two_turn(char MODE_B_E, unsigned char array_of_grid_of_beginners[9][
       printf("please enter the letter U want to change again, %s\n", Name_Player2);
       scanf(" %c", &letter_be_changed);
       printf("\n");
+      if (letter_be_changed=='1') {
+           save_game(MODE_B_E,'2' ,data.Name_Player1, data.Name_Player2, data.player_one_score , data.player_two_score ,array_of_grid_of_beginners ,
+               array_of_grid_of_experts , data.number_of_remaining_lines_e , data.number_of_remaining_boxes_e , numofloop) ;
+           exit(0) ;
+         }
       checked_letter = Check_Letter_In_Array_Of_Experts(letter_be_changed, array_of_grid_of_experts);
     }
     array_of_taken_characters[(*p_of_taken_char)] = letter_be_changed;
@@ -113,7 +131,8 @@ void player_two_turn(char MODE_B_E, unsigned char array_of_grid_of_beginners[9][
     scanf(" %c", &letter_be_changed);
     printf("\n");
     if (letter_be_changed=='1') {
-    save_game(MODE_B_E,'2',data.Name_Player1, data.Name_Player2, data.player_one_score , data.player_two_score ,array_of_grid_of_beginners , array_of_grid_of_experts , data.number_of_remaining_lines_e , data.number_of_remaining_boxes_e , numofloop) ;
+    save_game(MODE_B_E,'2',data.Name_Player1, data.Name_Player2, data.player_one_score , data.player_two_score ,array_of_grid_of_beginners ,
+               array_of_grid_of_experts , data.number_of_remaining_lines_b , data.number_of_remaining_boxes_b , numofloop) ;
     exit(0) ;
     }
     //else if (letter_be_changed=='2') { //still
@@ -130,6 +149,11 @@ void player_two_turn(char MODE_B_E, unsigned char array_of_grid_of_beginners[9][
       printf("please enter the letter U want to change again, %s\n", Name_Player2);
       scanf(" %c", &letter_be_changed);
       printf("\n");
+      if (letter_be_changed=='1') {
+          save_game(MODE_B_E,'2',data.Name_Player1, data.Name_Player2, data.player_one_score , data.player_two_score ,array_of_grid_of_beginners ,
+               array_of_grid_of_experts , data.number_of_remaining_lines_b , data.number_of_remaining_boxes_b , numofloop) ;
+          exit(0) ;
+       }
       checked_letter = Check_Letter_In_Array_Of_Beginners(letter_be_changed, array_of_grid_of_beginners);
     }
     array_of_taken_characters[(*p_of_taken_char)] = letter_be_changed;
