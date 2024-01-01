@@ -87,7 +87,21 @@ int main()
     if (wants == '1')
     {
       load_game(data.Name_Player1, data.Name_Player2, &data.player_one_score, &data.player_two_score);
-      main();
+      printf("\n1:play again\n2:exit\n");
+      scanf("%d",&k);
+      while ((k!= 1)&&(k!=2))
+      {
+        printf("invalid , try again");
+        scanf("%d",&k);
+      }
+      if (k==1)
+      {
+        main();
+      }
+      else if (k==2)
+      {
+        exit(0);
+      }   
     }
     else if (wants== '3') main() ;
     else if (wants=='2')
@@ -136,7 +150,7 @@ int main()
       game_loop_new(MODE_B_E, against, array_of_grid_of_beginners, array_of_grid_of_experts); // test;
       printf("\n1:play again\n2:exit\n");
       scanf("%d",&k);
-      while ((k!= 1)||(k!=2))
+      while ((k!= 1)&&(k!=2))
       {
         printf("invalid , try again");
         scanf("%d",&k);
