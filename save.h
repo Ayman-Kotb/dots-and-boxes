@@ -122,19 +122,27 @@ void load_game(char name_player1[50], char name_player2[50], int *score1, int *s
     char filename[50];
     // displaySaveGames();
 
-    printf("\nEnter the name of the save game file you want to load:\n");
+    printf("\nEnter the name of the save game file you want to load:\nEnter 1 to back");
     scanf("%s", filename);
+    if (filename[0] =='1') return ;
     FILE *file = fopen(filename, "rb");
-
-    if (file == NULL)
+    int k=1 ;
+    while (k)
+    {if (file == NULL)
     {
         perror("Error opening file");
-        return;
+        //return;
+        printf("\nEnter the name of the save game file you want to load:\n");
+        scanf("%s", filename);
+        file = fopen(filename, "rb");
+        k++;
+        if (k==5)  return;   
     }
     else
     {
         printf("file has been opened successfully\n");
-    }
+        break;
+    }}
     int ch;
     fscanf(file, "%c\n%c\n%s\n%s\n%d\n%d\n%d\n%d\n%d\n", &mode, &twop_or_onep, name_player1, name_player2, &*score1, &*score2, &num_of_lines, &num_of_boxes, &turn);
     if (mode == '1')

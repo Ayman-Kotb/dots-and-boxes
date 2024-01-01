@@ -20,6 +20,19 @@ unsigned char array_of_grid_of_experts[21][41];
 //  code;
 int main()
 {
+  data.player_one_score = 0;
+    data.player_two_score = 0;
+    data.computer_score = 0;
+    data.number_of_remaining_boxes_b = 4;
+    data.number_of_remaining_boxes_e = 25;
+    data.number_of_remaining_lines_e = 60;
+    data.number_of_remaining_lines_b = 12;
+
+    // time_t now = time(NULL); // time;
+    // char *string_now = ctime(&now);
+
+    char MODE_B_E = '0';
+    char against;
   time_t now = time(NULL); // time;
   char *string_now = ctime(&now);
   srand(time(NULL));  // for computer random;
@@ -27,6 +40,9 @@ int main()
   char stat[10];
   char wants = '0';
   clearConsole();
+  int cc=1;
+  int k =0;
+  while (cc){
   printf("\n" MAGE " Welcome to Dots and Boxes Game " RESET "\n\n");
   printf("\n" MAGE " %s" RESET "\n", string_now); // print time;
   printf("\n" MAGE "Hope to enjoy" RESET "\n");
@@ -43,7 +59,7 @@ int main()
   if (wants == '2')
   {
     print_top_10_players();
-    return 0;
+    main();
   }
   else if (wants == '3')
   {
@@ -54,27 +70,14 @@ int main()
     // srand(time(NULL));//for computer random;
     // clock_t start, end; // Time start , end;
 
-    data.player_one_score = 0;
-    data.player_two_score = 0;
-    data.computer_score = 0;
-    data.number_of_remaining_boxes_b = 4;
-    data.number_of_remaining_boxes_e = 25;
-    data.number_of_remaining_lines_e = 60;
-    data.number_of_remaining_lines_b = 12;
-
-    // time_t now = time(NULL); // time;
-    // char *string_now = ctime(&now);
-
-    char MODE_B_E = '0';
-    char against;
     // TAke names and who play against:
     clearConsole();
     // printf("\n" MAGE " Welcome to Dots and Boxes Game " RESET "\n\n");
     // printf(MAGE " %s" RESET, string_now); // print time;
-    printf(BRED "1:load game\n2:play a new game\n" RESET);
+    printf(BRED "1:load game\n2:play a new game\n3:Back" RESET);
     scanf(" %c", &wants);
     printf("================================");
-    while (wants != '1' && wants != '2')
+    while (wants != '1' && wants != '2' && wants != '3')
     {
       printf("\n");
       printf(BRED "1:load game\n2:play a new game\n" RESET);
@@ -84,8 +87,10 @@ int main()
     if (wants == '1')
     {
       load_game(data.Name_Player1, data.Name_Player2, &data.player_one_score, &data.player_two_score);
+      main();
     }
-    else
+    else if (wants== '3') main() ;
+    else if (wants=='2')
     {
       printf("\nwhat mode U want to play\n1: Experts Mode\n2: Beginner Mode\n");
 
@@ -129,7 +134,23 @@ int main()
       // turns
       char letter_to_be_changed;
       game_loop_new(MODE_B_E, against, array_of_grid_of_beginners, array_of_grid_of_experts); // test;
+      printf("\n1:play again\n2:exit\n");
+      scanf("%d",&k);
+      while ((k!= 1)||(k!=2))
+      {
+        printf("invalid , try again");
+        scanf("%d",&k);
+      }
+      if (k==1)
+      {
+        main();
+      }
+      else if (k==2)
+      {
+        exit(0);
+      }   
     }
+  }
   }
   return 0;
 }

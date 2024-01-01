@@ -8,6 +8,7 @@ lead Top[100];
 int site;
 int i = 0;
 int num_of_mem = 0;
+int ch ;
 
 int look_for_name_s(char name_player_p[50])
 {
@@ -144,6 +145,7 @@ int read_and_sor_from_file()
     }
     int SIZE = sizeof(Top) / sizeof(lead);
     qsort(Top, SIZE, sizeof(lead), sorting_scores);
+     fclose(file);
 }
 void print_top10()
 {
@@ -168,4 +170,12 @@ void print_top_10_players()
     printf("\n\n");
     read_and_sor_from_file();
     print_top10();
+    printf("\n\nEnter 1 to Back\n");
+    scanf("%d",&ch);
+    while (ch != 1)
+    {
+        printf("invalid , try again ");
+        scanf("%d", &ch);
+    }
+    if (ch == 1) return ;
 }
