@@ -10,6 +10,7 @@ int i = 0;
 int num_of_mem = 0;
 int ch ;
 
+
 int look_for_name_s(char name_player_p[50])
 {
     int found_name = 0;
@@ -145,7 +146,7 @@ int read_and_sor_from_file()
     }
     int SIZE = sizeof(Top) / sizeof(lead);
     qsort(Top, SIZE, sizeof(lead), sorting_scores);
-     fclose(file);
+    fclose(file);
 }
 void print_top10()
 {
@@ -166,9 +167,12 @@ void print_top10()
 }
 void print_top_10_players()
 {
+    static xd=0 ;
     print_shape_Top10();
     printf("\n\n");
+    if (xd==0) {
     read_and_sor_from_file();
+    xd++ ;}
     print_top10();
     printf("\n\nEnter 1 to Back\n");
     scanf("%d",&ch);

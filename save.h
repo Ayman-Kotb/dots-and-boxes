@@ -57,6 +57,8 @@ void save_game(char mode, char twop_or_onep, char name_player1[50], char name_pl
             }
             // fprintf(fp[x], "\n");
         }
+        fclose(fp[x]);
+        printf("game has been saved successfully\nyour file is (%s)\n", filename);
     }
     else if (mode == '1' && twop_or_onep == '1') //expert and 1p
     {
@@ -110,6 +112,22 @@ void save_game(char mode, char twop_or_onep, char name_player1[50], char name_pl
         printf("game has been saved successfully\nyour file is (%s)\n", filename);
     }
     x++;
+    int k ;
+    printf("\n1:play again\n2:exit\n");
+      scanf("%d",&k);
+      while ((k!= 1)&&(k!=2))
+      {
+        printf("invalid , try again");
+        scanf("%d",&k);
+      }
+      if (k==1)
+      {
+        main();
+      }
+      else if (k==2)
+      {
+        exit(0);
+      }   
 }
 //************************************************************************
 void load_game(char name_player1[50], char name_player2[50], int *score1, int *score2)
