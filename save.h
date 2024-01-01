@@ -11,7 +11,7 @@ void save_game(char mode, char twop_or_onep, char name_player1[50], char name_pl
     printf("Enter the name of the save game\n");
     scanf("%s", filename);
     int tries = 0;
-    if (mode == '1' && twop_or_onep == '2')
+    if (mode == '1' && twop_or_onep == '2')  //expert and 2p
     {
         if ((fp[x] = fopen(("%s.bin", filename), "wb")) == NULL)
         {
@@ -35,7 +35,7 @@ void save_game(char mode, char twop_or_onep, char name_player1[50], char name_pl
         fclose(fp[x]);
         printf("game has been saved successfully\nyour file is (%s)\n", filename);
     }
-    else if (mode == '2' && twop_or_onep == '2')
+    else if (mode == '2' && twop_or_onep == '2') // beg and 2p
     {
         while ((fp[x] = fopen(("%s.bin", filename), "wb")) == NULL)
         {
@@ -58,8 +58,9 @@ void save_game(char mode, char twop_or_onep, char name_player1[50], char name_pl
             // fprintf(fp[x], "\n");
         }
     }
-    else if (mode == '1' && twop_or_onep == '1')
+    else if (mode == '1' && twop_or_onep == '1') //expert and 1p
     {
+        name_player2= "no thing" ;
         if ((fp[x] = fopen(("%s.bin", filename), "wb")) == NULL)
         {
             printf("Error! opening file");
@@ -82,8 +83,9 @@ void save_game(char mode, char twop_or_onep, char name_player1[50], char name_pl
         fclose(fp[x]);
         printf("game has been saved successfully\nyour file is (%s)\n", filename);
     }
-    else if (mode == '2' && twop_or_onep == '1')
+    else if (mode == '2' && twop_or_onep == '1') //beginner and 1p
     {
+        name_player2= "no thing" ;
         while ((fp[x] = fopen(("%s.bin", filename), "wb")) == NULL)
         {
             printf("Error! opening file");
@@ -155,7 +157,8 @@ void load_game(char name_player1[50], char name_player2[50], int *score1, int *s
             }
         }
     }
-    game_loop_load(mode, twop_or_onep, array_of_b, array_of_e, num_of_lines, num_of_boxes, turn, score1, score2, name_player1, name_player2);
     fclose(file);
-    printf("game has been saved successfully\nyour file is (%s)\n", filename);
+    printf("game has been loaded successfully\n");
+    game_loop_load(mode, twop_or_onep, array_of_b, array_of_e, num_of_lines, num_of_boxes, turn, score1, score2, name_player1, name_player2);
+    
 }
